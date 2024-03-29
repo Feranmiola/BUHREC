@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer utilities {
+  /* TYPOGRAPHY */
+  .h1-bold {
+    @apply text-[56px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .h1-semibold {
+    @apply text-[36px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .h2-bold {
+    @apply text-[30px] font-bold leading-[140%] tracking-tighter;
+  }
+  .h2-semibold {
+    @apply text-[30px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .h3-bold {
+    @apply text-[24px] font-bold leading-[140%] tracking-tighter;
+  }
+  .h3-semibold {
+    @apply text-[24px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .base-semibold {
+    @apply text-[16px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .base-medium {
+    @apply text-[16px] font-medium leading-[140%];
+  }
+
+  .base-regular {
+    @apply text-[16px] font-normal leading-[140%];
+  }
+
+  .body-bold {
+    @apply text-[18px] font-bold leading-[140%];
+  }
+
+  .body-medium {
+    @apply text-[18px] font-medium leading-[140%];
+  }
+
+  .small-semibold {
+    @apply text-[14px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .small-medium {
+    @apply text-[14px] font-medium leading-[140%];
+  }
+
+  .small-regular {
+    @apply text-[14px] font-normal leading-[140%];
+  }
+
+  .subtle-semibold {
+    @apply text-[12px] font-semibold leading-[140%];
+  }
+
+  .tiny-medium {
+    @apply text-[10px] font-medium leading-[140%];
+  }
+
+  /* UTILITIES */
+  .invert-white {
+    @apply invert brightness-0 transition;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-start {
+    @apply flex justify-start items-center;
+  }
+  
+  .sidebar-link {
+    color: inherit; /* initial color, change as needed */
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar-link:hover {
+    color: rgb(1, 1, 90);
+  }
+
+  table {
+    margin: auto;
+    
+    
+  border-collapse:initial;
+    border-top: none;
+    width: 80%; /* Adjust as needed */
+    margin: auto;
+    
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    width: 50;
+    height: 50;
+    padding: 0.5rem;
+    overflow: hidden;
+
+}
+
+
+#captionL{
+  padding-bottom: 1rem;
+
+}
+#captiont{
+  padding-top: 1rem;
+
+}
+  .pagebreak {
+    page-break-before: always;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.shadcn-ui-scrollarea__viewport {
+  /* Set the scrollbar thumb & track colors */
+  --scrollbarBG: var(--chakra-colors-gray-200);
+  --scrollbarColor: var(--chakra-colors-brand-500);
+
+  /* Hide the default scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Apply custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--scrollbarBG);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--scrollbarColor);
+  }
+}
+
+}  
+
+@layer components {
+  /* SHADCN COMPONENTS */
+  /* Form */
+  .shad-form_label {
+    @apply text-black !important; /* Adjusted for light mode */
+  }
+
+  .shad-form_message {
+    @apply text-red !important;
+  }
+
+  .shad-input {
+    @apply h-12 bg-white border border-gray-300 placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-gray-300 !important;
+  }
+
+  .shad-textarea {
+    @apply h-36 bg-gray-100 rounded-xl border border-gray-300 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-gray-300 !important;
+  }
+
+  /* Button */
+  .shad-button_primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white flex gap-2 !important; /* Adjusted for light mode */
+  }
+
+  .shad-button_dark_4 {
+    @apply h-12 bg-gray-400 px-5 text-white flex gap-2 !important; /* Adjusted for light mode */
+  }
+
+  .shad-button_ghost {
+    @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-black !important; /* Adjusted for light mode */
+  }
+
+}
+
