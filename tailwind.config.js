@@ -23,19 +23,19 @@ module.exports = {
     },
     extend: {
       colors: {
-        'primary-500': '#877EFF',
-        'primary-600': '#5D5FEF',
-        'secondary-500': '#FFB620',
-        'off-white': '#D0DFFF',
-        'red': '#FF5A5A',
-        'dark-1': '#000000',
-        'dark-2': '#09090A',
-        'dark-3': '#101012',
-        'dark-4': '#1F1F22',
-        'light-1': '#FFFFFF',
-        'light-2': '#EFEFEF',
-        'light-3': '#7878A3',
-        'light-4': '#5C5C7B',
+        'text-purple': '#6C67FF',
+        'dashboard-page-header-purple': '#6C67FF',
+        'highlight-purple': '#6C67FF',
+        'border-purple': '#6C67FF',
+        'button-bg': '#6C67FF',
+        'button-hover-bg': '#342FC2',
+        'logo-purple': '#38008B',
+        'title-purple': '#38008B',
+        'header-number-purple' : '#38008B',
+        'account-name-purple': '#6C67FF',
+        'sidebar-header-purple': '#6C67FF',
+        'sidebar-active-purple': '#6C67FF',
+        'navbar-hover-purple': '#B37FFF',
       },
       darkMode: "class",
       plugins: [nextui()],
@@ -48,8 +48,8 @@ module.exports = {
         '465': '465px',
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-
+        'roboto': ['Roboto', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+        'poppins': ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
       },
       keyframes: {
         'accordion-down': {

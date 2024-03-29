@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 
 
 import { Button } from '@/components/ui/button'
-import { SignupValidationSchema, StaffSignupValidationSchema } from "@/lib/validation"
+import { SignupValidationSchema } from "@/lib/validation"
 
 import { storeCredentials } from "./storeCredentials"
 import {
@@ -19,12 +19,6 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
 
 import {
   Select,
@@ -38,12 +32,11 @@ import {
 
 
 import { Input } from "@/components/ui/input"
-import { Loader } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
 
 
 
-const Signinform = () => {
+const SignupForm = () => {
   
   const isLoading = false;
   const isAccountCreated = true;
@@ -56,9 +49,18 @@ const Signinform = () => {
       firstName: "",
       lastName: "",
       email: "",
-      department: "",
-      level: "",
-      password: ""
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      prefix: "",
+      suffix: "",
+      preferrdRole: "",
+      studyLevel: "",
+      program: "",
+      discipline: "",
+      password: "",
+      confirmPassword: ""
     },
   })
   
@@ -67,303 +69,296 @@ const Signinform = () => {
   
 }
 
-const formB = useForm<z.infer<typeof StaffSignupValidationSchema>>({
-  resolver: zodResolver(StaffSignupValidationSchema),
-  defaultValues: {
-    firstName: "",
-    lastName: "",
-    email: "",
-    department: "",
-    password: ""
-  },
-})
 
-async function onSubmitB(values: z.infer<typeof StaffSignupValidationSchema>) {
-  
-  
-}
+
+
 
   return (
     
-  <div>
+  <div className="  py-6">
+    <div className=" flex justify-start items-start -ml-8 -mt-5">
+    <Link to = "/" className="flex">
+      <img
+      src="./assets/backIcon.png"
+      /><h2 className="font-roboto font-semibold text-text-purple text-3xl mt-4 ml-3">Create a new account</h2></Link>
+      
+    </div>
     
-      <div className="sm:w-420 flex-center flex-col">
-        
-        <h2 className="h3-bold md:h2-bold">Create a new account.</h2>
-        
-        <p className="text-light-3 small-medium md:base-regular ">Enter your details</p>
-
-
-        <Tabs defaultValue="account" className="w-[400px] place-self-center">
-          <TabsList className="grid w-full grid-cols-2 bg-gray-200">
-        
-            <TabsTrigger value="StudentAccount" >Student Account</TabsTrigger>
-            <TabsTrigger value="LecturerAccount">Lecturer Account</TabsTrigger>
-        
-          </TabsList>
-        
-          <TabsContent value="StudentAccount">
+      <div className="flex mt-10">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-full mt-4">
-              
-              <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Firstname</FormLabel>
-                    <FormControl>
-                      <Input type="text" placeholder="" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex-row">         
+              <div className="grid grid-cols-2 gap-4">
+                <div className="border-4 border-border-purple rounded-lg p-4 w-[585px] h-[615px]">
+                <h2> <strong className="font-poppins text-xl">Bio Data</strong> </h2>
+                  <div className="ml-5 mt-3">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem className="flex items-center">
+                          <FormLabel className="body-medium font-poppins ">Firstname:</FormLabel>
+                          <FormControl>
+                            <Input type="text" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-              <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Lastname</FormLabel>
-                    <FormControl>
-                      <Input type="text" placeholder="" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem className="flex items-center">
+                          <FormLabel className="body-medium font-poppins">Lastname:</FormLabel>
+                          <FormControl>
+                            <Input type="text" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>E-mail Address</FormLabel>
-                    <FormControl>
-                      <Input type="email"  placeholder="" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem className="flex items-center">
+                          <FormLabel className="body-medium font-poppins">Email:</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <div className="flex">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
 
-              <FormField
-                control={form.control}
-                name="department"
-                render={({ field }) => (
+                          <FormItem className="flex items-center">
+                          <FormLabel className="body-medium font-poppins">Phone:</FormLabel>
+                          <FormControl>
+                            <Input type="text" placeholder="" className="shad-input ml-4 w-56" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
 
-                  <FormItem>
-                    <FormLabel>Department</FormLabel>
-                    <FormControl>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="sex"
+                        render={({ field }) => (
 
-                    <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
-                          <SelectTrigger className="w-full bg-white">
-                            <SelectValue placeholder="Select Department" />
-                          </SelectTrigger>
-                            <SelectContent className="bg-white">
-                              <SelectItem value="softwareEngineering" className="hover:bg-gray-200">Software Engineering</SelectItem>
-                              <SelectItem value="computerScience" className="hover:bg-gray-200">Computer Science</SelectItem>
-                              <SelectItem value="cis" className="hover:bg-gray-200">CIS</SelectItem>
-                              <SelectItem value="computerTechnology" className="hover:bg-gray-200">Computer Technology</SelectItem>
-                          </SelectContent>
-                          
-                        </Select>
+                          <FormItem className="flex items-center mx-4"> 
+                          <FormLabel className="body-medium font-poppins">Sex:</FormLabel>
+                          <FormControl>
+                            <Input type="text" placeholder="" className="shad-input ml-4 w-40" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
 
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <FormField
+                      control={form.control}
+                      name="address"
+                      render={({ field }) => (
+                        <FormItem className="flex items-center">
+                        <FormLabel className="body-medium font-poppins">Address:</FormLabel>
+                        <FormControl>
+                          <Input type="text" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                      )}
+                    />
+                    <div className="flex">
+                      <FormField
+                        control={form.control}
+                        name="state"
+                        render={({ field }) => (
+                          <FormItem className="flex items-center">
+                          <FormLabel className="body-medium font-poppins">State:</FormLabel>
+                          <FormControl>
+                            <Input type="text" placeholder="" className="shad-input ml-4 w-44" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                        )}
+                      />
 
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="classGroup"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Group</FormLabel>
-                    <FormControl>
-                      <Input type="text"  placeholder="A" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="level"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Level</FormLabel>
-                    <FormControl>
-                       <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
-                          <SelectTrigger className="w-full bg-white">
-                            <SelectValue placeholder="100" />
-                          </SelectTrigger>
-                            <SelectContent className="bg-white">
-                              <SelectItem value="100" className="hover:bg-gray-200">100</SelectItem>
-                              <SelectItem value="200" className="hover:bg-gray-200">200</SelectItem>
-                              <SelectItem value="300" className="hover:bg-gray-200">300</SelectItem>
-                              <SelectItem value="400" className="hover:bg-gray-200">400</SelectItem>
-                              <SelectItem value="500" className="hover:bg-gray-200">500</SelectItem>
-                          </SelectContent>
-                        </Select>
-
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input type="password" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
-                {isLoading? (
-                  <div className="flex-center gap-2 ">
-                    <Loader/>
+                      <FormField
+                        control={form.control}
+                        name="city"
+                        render={({ field }) => (
+                          <FormItem className="flex items-center ml-5">
+                          <FormLabel className="body-medium font-poppins">City:</FormLabel>
+                          <FormControl>
+                            <Input type="text" placeholder="" className="shad-input ml-4 w-44" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                        )}
+                      />
+                    </div>
                   </div>
-                ):(
-                  <div>Sign Up</div>
-                )}
-              </Button>
+                    <div className="mt-4">
+                      <h2> <strong className="font-poppins text-xl">Password</strong> </h2>
+                      <div className="ml-5">
+                        <FormField
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                              <FormItem className="flex items-center">
+                                <FormLabel className="body-medium font-poppins">Password:</FormLabel>
+                                <FormControl>
+                                  <Input type="email" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="confirmPassword"
+                            render={({ field }) => (
+                              <FormItem className="flex items-center">
+                                <FormLabel className="body-medium font-poppins">Confirm Password:</FormLabel>
+                                <FormControl>
+                                  <Input type="email" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                      </div>
+                    </div>
+                </div>
+                <div className=" border-4 border-border-purple rounded-lg p-4 w-[585px] mx-4">
+                <h2> <strong className="font-poppins text-xl">Academic Information</strong> </h2>
+                <div className="ml-4 mt-3">
+                  <div className="flex">
+                    <FormField
+                        control={form.control}
+                        name="prefix"
+                        render={({ field }) => (
+                          <FormItem className="flex items-center">
+                            <FormLabel className="body-medium font-poppins">Prefix:</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="" className="shad-input ml-4 w-40" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="suffix"
+                        render={({ field }) => (
+                          <FormItem className="flex items-center ml-4">
+                            <FormLabel className="body-medium font-poppins">Suffix:</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="" className="shad-input ml-4 w-40" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                  </div>
+
+                  <FormField
+                    control={form.control}
+                    name="preferrdRole"
+                    render={({ field }) => (
+                      <FormItem className="flex items-center">
+                        <FormLabel className="body-medium font-poppins">Preferred Role:</FormLabel>
+                        <FormControl>
+                          <div className=" w-48 ml-4">
+                            <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
+                                <SelectTrigger className="w-full shad-select bg-white border-2">
+                                  <SelectValue placeholder="Select Your Role" />
+                                </SelectTrigger>
+                                  <SelectContent className="bg-white">
+                                    <SelectItem value="Reviewer" className="hover:bg-gray-200">Reviewer</SelectItem>
+                                    <SelectItem value="Researcher" className="hover:bg-gray-Researcher">Researcher</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="studyLevel"
+                    render={({ field }) => (
+                      <FormItem className="flex items-center">
+                        <FormLabel className="body-medium font-poppins">Study Level:</FormLabel>
+                        <FormControl>
+                          <Input type="text" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="program"
+                    render={({ field }) => (
+                      <FormItem className="flex items-center">
+                        <FormLabel className="body-medium font-poppins">Program:</FormLabel>
+                        <FormControl>
+                          <Input type="text" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="discipline"
+                    render={({ field }) => (
+                      <FormItem className="flex items-center">
+                        <FormLabel className="body-medium font-poppins">Discipline:</FormLabel>
+                        <FormControl>
+                          <Input type="text" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  </div>
+                </div>
+              </div>
+              <div className=" justify-center items-center flex">
+                <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
+                    <div>Sign Up</div>
+                </Button>
+
+              </div>
             
             </form>
 
-            
         </Form>
-
-          </TabsContent>
-          <TabsContent value="LecturerAccount">
-          <Form {...formB}>
-            <form onSubmit={form.handleSubmit(onSubmitB)} className="flex flex-col w-full mt-4">
-              
-              <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Firstname</FormLabel>
-                    <FormControl>
-                      <Input type="text" placeholder="" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Lastname</FormLabel>
-                    <FormControl>
-                      <Input type="text" placeholder="" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>E-mail Address</FormLabel>
-                    <FormControl>
-                      <Input type="email"  placeholder="" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="department"
-                render={({ field }) => (
-
-                  <FormItem>
-                    <FormLabel>Department</FormLabel>
-                    <FormControl>
-
-                    <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
-                          <SelectTrigger className="w-full bg-white">
-                            <SelectValue placeholder="Select Department" />
-                          </SelectTrigger>
-                            <SelectContent className="bg-white">
-                              <SelectItem value="softwareEngineering" className="hover:bg-gray-200">Software Engineering</SelectItem>
-                              <SelectItem value="computerScience" className="hover:bg-gray-200">Computer Science</SelectItem>
-                              <SelectItem value="cis" className="hover:bg-gray-200">CIS</SelectItem>
-                              <SelectItem value="computerTechnology" className="hover:bg-gray-200">Computer Technology</SelectItem>
-                          </SelectContent>
-                          
-                        </Select>
-
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input type="password" className="shad-input" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
-                {isLoading? (
-                  <div className="flex-center gap-2 ">
-                    <Loader/>
-                  </div>
-                ):(
-                  <div>Sign Up</div>
-                )}
-              </Button>
-  
-            </form>
-
-            
-            </Form>
-
-          </TabsContent>
-        
-        </Tabs>
-        <p className="text-small-regular text-dark-2 text-center mt-3">Already have an account?
-              <Link to = "/sign-in" className="text-primary-500 text-small-semibold ml-1">Log in</Link>
-          </p>
-  
       </div>
   
     </div>
     
     
   )
+              
 }
 
-export default Signinform
+export default SignupForm

@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -124,6 +126,11 @@ th, td {
 
 }
 
+.homeHeader{
+  margin-left: 300px;
+
+}
+
 
 #captionL{
   padding-bottom: 1rem;
@@ -182,7 +189,10 @@ th, td {
   }
 
   .shad-input {
-    @apply h-12 bg-white border border-gray-300 placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-gray-300 !important;
+    @apply h-12 bg-white border border-2 border-border-purple placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-border-purple !important;
+  }
+  .shad-select {
+    @apply h-12 bg-white border border-2 border-border-purple placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-border-purple !important;
   }
 
   .shad-textarea {
@@ -191,7 +201,7 @@ th, td {
 
   /* Button */
   .shad-button_primary {
-    @apply bg-blue-500 hover:bg-blue-600 text-white flex gap-2 !important; /* Adjusted for light mode */
+    @apply bg-button-bg hover:bg-button-hover-bg text-white flex gap-2 !important; /* Adjusted for light mode */
   }
 
   .shad-button_dark_4 {

@@ -46,73 +46,138 @@ const Home = () => {
 
 
   return (
-    <main className='w-screen h-screen'>
+    <main className='w-full h-screen'>
         <div className='bgImage h-[1025px]'>
             <div className='flex px-12 justify-between py-10'>
                 <div>
-                    <h2 className='text-purple-700 h3-semibold '>BUHREC</h2>
+                <h2 className='text-title-purple font-roboto text-2xl font-bold'>BUHREC</h2>
                 </div>
                 
                 <div className='flex flex-row justify-center'>
                 
                     <div className='flex space-x-8'>
-                        <Link to="#login" className="hover:text-purple-300 body-medium">Login</Link>
-                        <Link to="#pricing" className="hover:text-purple-300 body-medium">Pricing</Link>
-                        <Link to="#about" className="hover:text-purple-300 body-medium">About</Link>
-                    </div>
-                </div>
-                <a href="/support" className="hover:text-purple-300 body-medium">Support</a>
-            </div>
-            <div className='flex flex-row justify-center items-center'>
-                <div className='flex flex-1 justify-start items-start flex-col px-60 py-48'>
-                    <h2 className='h1-bold w-72'>Welcome to <span className='h1-bold text-purple-600'>BUHREC</span></h2>
-                    <p className=' w-72 '>loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem</p>
-                    
-                    <div className=' flex mt-3 pc-3 bg-white'>
-                        <Dialog>
+                    <Dialog>
                             <DialogTrigger asChild>
-                                <Button className='bg-purple-500 text-white w-28 hover:bg-purple-700' >Login</Button>
+                            <p className="hover:text-navbar-hover-purple body-medium cursor-pointer">Login</p>
                             </DialogTrigger>
                             <DialogContent className="sm:max-w-[425px] bg-white">
                                 
                                     <Form {...form}>
                                         <div className="">
                                             <div className=''>
-                                                <h2 className="h3-bold md:h2-bold text-purple-600">Login</h2>
-                                                <p>Login to your account</p>
+                                                <h2 className="font-poppins text-2xl text-center">Login to <span className='text-text-purple'>BUHREC</span> </h2>
                                             </div>
                                             
                                         
                                             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col mt-4">         
-                                                <FormField
-                                                control={form.control}
-                                                name="email"
-                                                render={({ field }) => (
-                                                    <FormItem>
-                                                    <FormLabel>E-mail Address</FormLabel>
-                                                    <FormControl>
-                                                        <Input type="email"  placeholder="" className="shad-input" {...field} />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                    </FormItem>
-                                                )}
-                                                />
+                                                <div className='justify-center items-center ml-4'>
+                                                    <FormField
+                                                    control={form.control}
+                                                    name="email"
+                                                    render={({ field }) => (
+                                                        <FormItem className="flex items-center">
+                                                            <FormLabel className="body-medium">Email:</FormLabel>
+                                                            <FormControl>
+                                                                <Input type="email" placeholder="" className="shad-input ml-4 w-56" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                    />
 
-                                                <FormField
-                                                control={form.control}
-                                                name="password"
-                                                render={({ field }) => (
-                                                    <FormItem className='mt-4'>
-                                                    <FormLabel>Password</FormLabel>
-                                                    <FormControl>
-                                                        <Input type="password" placeholder="" className="shad-input" {...field} />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                    </FormItem>
-                                                )}
-                                                />
+                                                    <FormField
+                                                    control={form.control}
+                                                    name="password"
+                                                    render={({ field }) => (
+                                                        <FormItem className="flex items-center">
+                                                            <FormLabel className="body-medium">Password:</FormLabel>
+                                                            <FormControl>
+                                                                <Input type="password" placeholder="" className="shad-input ml-4 w-56" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                    />
+                                                    
+                                                </div>
+                                                
                                                 <Toast ref={toast} />
-                                                <Button type="submit" className="bg-purple-500 text-white hover:bg-purple-700 -y mt-4 w-40 place-self-center">
+                                                <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
+                                                    <div>Sign In</div>
+                                                </Button>
+
+                                                <p className="text-small-regular text-dark-2 text-center mt-3">Don't have an account?
+                                                <Link to = "/sign-up" className="text-primary-500 text-small-semibold ml-1">Sign-up</Link>
+                                                </p>
+
+                                                <p className="text-small-regular text-dark-2 text-center mt-3">
+                                                <Link to = "/adminSign-in" className="text-primary-500 text-small-semibold ml-1">Admin</Link>
+                                                </p>
+                                                
+                                            </form>
+                                            </div>
+                                        </Form>
+                            </DialogContent>
+                        </Dialog>
+                        <Link to="#pricing" className="hover:text-navbar-hover-purple body-medium">Pricing</Link>
+                        <Link to="#about" className="hover:text-navbar-hover-purple body-medium">About</Link>
+                    </div>
+                </div>
+                <a href="/support" className="hover:text-navbar-hover-purple body-medium">Support</a>
+            </div>
+            <div className='flex flex-row justify-center items-center'>
+                <div className='flex flex-1 justify-start items-start flex-col homeHeader py-44'>
+                    <h2 className=' font-roboto text-7xl w-[425px]'>Welcome to <span className=' font-roboto text-title-purple'>BUHREC</span></h2>
+                    <p className=' w-72 '>loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem</p>
+                    
+                    <div className=' flex mt-3 pc-3 bg-white'>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button className='bg-button-bg text-white w-28 hover:bg-button-hover-bg' >Login</Button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-[425px] bg-white">
+                                
+                                    <Form {...form}>
+                                        <div className="">
+                                            <div className=''>
+                                                <h2 className="font-poppins text-2xl text-center">Login to <span className='text-text-purple'>BUHREC</span> </h2>
+                                            </div>
+                                            
+                                        
+                                            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col mt-4">         
+                                                <div className='justify-center items-center ml-4'>
+                                                    <FormField
+                                                    control={form.control}
+                                                    name="email"
+                                                    render={({ field }) => (
+                                                        <FormItem className="flex items-center">
+                                                            <FormLabel className="body-medium">Email:</FormLabel>
+                                                            <FormControl>
+                                                                <Input type="email" placeholder="" className="shad-input ml-4 w-56" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                    />
+
+                                                    <FormField
+                                                    control={form.control}
+                                                    name="password"
+                                                    render={({ field }) => (
+                                                        <FormItem className="flex items-center">
+                                                            <FormLabel className="body-medium">Password:</FormLabel>
+                                                            <FormControl>
+                                                                <Input type="password" placeholder="" className="shad-input ml-4 w-56" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                    />
+                                                    
+                                                </div>
+                                                
+                                                <Toast ref={toast} />
+                                                <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
                                                     <div>Sign In</div>
                                                 </Button>
 
@@ -130,18 +195,14 @@ const Home = () => {
                             </DialogContent>
                         </Dialog>
                         <div className=' flex bg-gray-700 mx-5 w-28 rounded-full items-center justify-center'>
-                            <Button className='bg-white text-black w-25 mx-5 rounded-full hover:bg-gray-700 hover:text-white '>Get Started</Button>
+                            <Button className='bg-white text-black w-25 mx-5 rounded-full hover:bg-gray-700 hover:text-white '> <Link to = "/sign-up">Get Started</Link> </Button>
                         </div>
                     </div>
               
               
                 </div>
             </div>
-        </div>
-        <section id="login">
-            
-        </section>
-        <section id="pricing" className='mt-10'>
+            <div id="pricing" className='mt-10'>
             <div className='justify-center items-center flex'>
                 <h3 className='h2-bold text-purple-600 '>Pricing</h3>
             </div>
@@ -161,7 +222,9 @@ const Home = () => {
                     </Row>
                 </div>
             </div>
-        </section>
+        </div>
+        </div>
+        
         <section id="about" className='mt-10'>
             <div className='justify-center items-center flex'>
                 <h3 className='h2-bold text-purple-600 '>About</h3>
