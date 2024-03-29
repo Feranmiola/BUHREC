@@ -2,8 +2,8 @@ import * as z  from "zod"
 
 
 export const SignupValidationSchema = z.object({
-    firstName: z.string().min(2, {message : "too short" }),
-    lastName: z.string().min(2, {message : "too short" }),
+    firstName: z.string(),
+    lastName: z.string(),
     email: z.string().email(),
     phone: z.string(),
     sex: z.string(),
@@ -16,8 +16,8 @@ export const SignupValidationSchema = z.object({
     studyLevel: z.string(),
     program: z.string(),
     discipline: z.string(),
-    password: z.string().min(8, {message : "Password must be at least 8 characters" }),
-    confirmPassword: z.string().min(8, {message : "Password must be at least 8 characters" }),
+    password: z.string(),
+    confirmPassword: z.string(),
 
   })
 

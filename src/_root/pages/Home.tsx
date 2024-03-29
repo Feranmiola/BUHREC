@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRef } from 'react';
+
 import { Link } from 'react-router-dom'
 import { Card, Col, Row } from 'antd';
 import { Button } from '@/components/ui/button';
@@ -9,7 +9,7 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
   import { Input } from "@/components/ui/input"
-  import { Toast } from 'primereact/toast';
+  
   import { z } from "zod"
   import { zodResolver } from "@hookform/resolvers/zod"
   import { useForm } from "react-hook-form"
@@ -35,12 +35,6 @@ const Home = () => {
 
     async function onSubmit(values: z.infer<typeof SigninValidationSchema>) {
         console.log(values)
-    }
-
-    const toast = useRef<Toast>(null);
-
-    const showSuccess = () => {
-        toast.current?.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
     }
 
 
@@ -101,7 +95,7 @@ const Home = () => {
                                                     
                                                 </div>
                                                 
-                                                <Toast ref={toast} />
+                                                
                                                 <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
                                                     <div>Sign In</div>
                                                 </Button>
@@ -128,7 +122,7 @@ const Home = () => {
             <div className='flex flex-row justify-center items-center'>
                 <div className='flex flex-1 justify-start items-start flex-col homeHeader py-44'>
                     <h2 className=' font-roboto text-7xl w-[425px]'>Welcome to <span className=' font-roboto text-title-purple'>BUHREC</span></h2>
-                    <p className=' w-72 '>loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem</p>
+                    <p className=' w-80 font-poppins '>loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem</p>
                     
                     <div className=' flex mt-3 pc-3 bg-white'>
                         <Dialog>
@@ -176,7 +170,7 @@ const Home = () => {
                                                     
                                                 </div>
                                                 
-                                                <Toast ref={toast} />
+                                                
                                                 <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
                                                     <div>Sign In</div>
                                                 </Button>
@@ -195,16 +189,16 @@ const Home = () => {
                             </DialogContent>
                         </Dialog>
                         <div className=' flex bg-gray-700 mx-5 w-28 rounded-full items-center justify-center'>
-                            <Button className='bg-white text-black w-25 mx-5 rounded-full hover:bg-gray-700 hover:text-white '> <Link to = "/sign-up">Get Started</Link> </Button>
+                            <Button className='bg-white text-black w-36 rounded-full mx-1  hover:bg-gray-700 hover:text-white '> <Link to = "/sign-up">Get Started</Link> </Button>
                         </div>
                     </div>
               
               
                 </div>
             </div>
-            <div id="pricing" className='mt-10'>
+            <div id="pricing" className=' mt-20'>
             <div className='justify-center items-center flex'>
-                <h3 className='h2-bold text-purple-600 '>Pricing</h3>
+                <h3 className='font-eoboto font-semibold text-4xl text-text-purple '>Pricing Information</h3>
             </div>
             <div className='flex flex-row mt-10 items-center justify-center '>
                 <div className='py-10'>
@@ -225,9 +219,9 @@ const Home = () => {
         </div>
         </div>
         
-        <section id="about" className='mt-10'>
+        <section id="about" className='mt-20'>
             <div className='justify-center items-center flex'>
-                <h3 className='h2-bold text-purple-600 '>About</h3>
+                <h3 className='font-eoboto font-semibold text-4xl text-text-purple '>About</h3>
             </div>
             <div className='mt-10 justify-center items-center'>
                 <p>Here is the about section</p>

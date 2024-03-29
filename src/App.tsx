@@ -27,6 +27,7 @@ import Authlayout from './_auth/authlayout';
 import Rootlayout from './_root/rootlayout';
 import SignedOut from './_auth/forms/SignedOut';
 import { Toaster } from "@/components/ui/toaster";
+import PageNotFound from './_auth/forms/PageNotFound';
 
 
 
@@ -44,7 +45,7 @@ function App() {
         <ChakraProvider>
           <main className='flex h-screen'>
             <Toaster/>
-            <Routes>
+            <Routes>              
               {/* public routes */}
               <Route element = {<Authlayout/>}>
                 
@@ -52,6 +53,8 @@ function App() {
                 <Route path= "/sign-up" element = { <Signupform/> } />
                 <Route path= "/adminSign-in" element = { <AdminSignIn/> } />
                 <Route path='/SignedOut' element = { <SignedOut/> }/>
+                <Route path='/PageNotFound' element = { <PageNotFound/> }/>
+                <Route path="*" element={<PageNotFound />} />
               
               </Route>
 

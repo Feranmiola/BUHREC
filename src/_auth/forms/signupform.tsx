@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -9,7 +9,17 @@ import { useNavigate } from "react-router-dom"
 import { Button } from '@/components/ui/button'
 import { SignupValidationSchema } from "@/lib/validation"
 
-import { storeCredentials } from "./storeCredentials"
+// import { storeCredentials } from "./storeCredentials"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 import {
   Form,
   FormControl,
@@ -38,10 +48,10 @@ import { useToast } from "@/components/ui/use-toast"
 
 const SignupForm = () => {
   
-  const isLoading = false;
-  const isAccountCreated = true;
-  const navigate = useNavigate();
-  const {toast} = useToast();
+  // const isLoading = false;
+  // const isAccountCreated = true;
+  // const navigate = useNavigate();
+  // const {toast} = useToast();
 
   const form = useForm<z.infer<typeof SignupValidationSchema>>({
     resolver: zodResolver(SignupValidationSchema),
@@ -63,9 +73,12 @@ const SignupForm = () => {
       confirmPassword: ""
     },
   })
+  const isSuccessfull = true;
+  
   
   async function onSubmit(values: z.infer<typeof SignupValidationSchema>) {
     
+  
   
 }
 
@@ -219,7 +232,7 @@ const SignupForm = () => {
                               <FormItem className="flex items-center">
                                 <FormLabel className="body-medium font-poppins">Password:</FormLabel>
                                 <FormControl>
-                                  <Input type="email" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                                  <Input type="password" placeholder="" className="shad-input ml-4 w-72" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -232,7 +245,7 @@ const SignupForm = () => {
                               <FormItem className="flex items-center">
                                 <FormLabel className="body-medium font-poppins">Confirm Password:</FormLabel>
                                 <FormControl>
-                                  <Input type="email" placeholder="" className="shad-input ml-4 w-72" {...field} />
+                                  <Input type="password" placeholder="" className="shad-input ml-4 w-72" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -253,7 +266,7 @@ const SignupForm = () => {
                           <FormItem className="flex items-center">
                             <FormLabel className="body-medium font-poppins">Prefix:</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="" className="shad-input ml-4 w-40" {...field} />
+                              <Input type="text" placeholder="" className="shad-input ml-4 w-40" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -266,7 +279,7 @@ const SignupForm = () => {
                           <FormItem className="flex items-center ml-4">
                             <FormLabel className="body-medium font-poppins">Suffix:</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="" className="shad-input ml-4 w-40" {...field} />
+                              <Input type="text" placeholder="" className="shad-input ml-4 w-40" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -343,9 +356,108 @@ const SignupForm = () => {
                 </div>
               </div>
               <div className=" justify-center items-center flex">
-                <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
+                <Dialog>
+                  <DialogTrigger>
+                    <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
                     <div>Sign Up</div>
                 </Button>
+                </DialogTrigger>
+                {isSuccessfull? (
+                  <DialogContent className="bg-white justify-center items-center w-96">
+                  <div className="flex flex-col justify-center items-center py-5">
+                    <div className="">
+                      <h2 className="font-poppins text-highlight-purple font-semibold text-xl">All Done!</h2>
+                    </div>
+                      <img
+                      src="/assets/completePNG.png"
+                      className="mt-3"/>
+                      <div className="flex flex-center pt-5">
+                        <p className="font-poppins text-xl">Proceed to</p>
+                        <DialogClose asChild >
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                <Button className="shad-button_primary w-32  ml-5">Login</Button>
+                                </DialogTrigger>
+                                <DialogContent className="sm:max-w-[425px] bg-white  h-[350px] justify-center items-center">
+                                    
+                                        <Form {...form}>
+                                            <div className="">
+                                                <div className=''>
+                                                    <h2 className="font-poppins text-2xl text-center">Login to <span className='text-text-purple'>BUHREC</span> </h2>
+                                                </div>
+                                                
+                                            
+                                                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col mt-4">         
+                                                    <div className='justify-center items-center ml-4'>
+                                                        <FormField
+                                                        control={form.control}
+                                                        name="email"
+                                                        render={({ field }) => (
+                                                            <FormItem className="flex items-center">
+                                                                <FormLabel className="body-medium">Email:</FormLabel>
+                                                                <FormControl>
+                                                                    <Input type="email" placeholder="" className="shad-input ml-4 w-56" {...field} />
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                        />
+
+                                                        <FormField
+                                                        control={form.control}
+                                                        name="password"
+                                                        render={({ field }) => (
+                                                            <FormItem className="flex items-center">
+                                                                <FormLabel className="body-medium">Password:</FormLabel>
+                                                                <FormControl>
+                                                                    <Input type="password" placeholder="" className="shad-input ml-4 w-56" {...field} />
+                                                                </FormControl>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                        />
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                    <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
+                                                        <div>Sign In</div>
+                                                    </Button>
+                                                </form>
+                                                </div>
+                                            </Form>
+                                </DialogContent>
+                            </Dialog>
+                      </DialogClose>
+                      </div>
+                  </div>                      
+              </DialogContent>
+
+                ):(
+                  <DialogContent className="bg-white justify-center items-center h-[350px] w-[420px]">
+                      <div className="flex flex-col justify-center items-center">
+                        <div className="">
+                          <h2 className="font-poppins text-red-400 font-semibold text-xl">Hold Up!</h2>
+                        </div>
+                          <img
+                          src="/assets/failedPNG.png"
+                          className="mt-3"/>
+                          <div className="flex flex-center">
+                            <p className="font-poppins text-xl">Something wen't wrong</p>
+                            <DialogClose asChild >
+                              <Button className=" text-highlight-purple font-poppins text-xl  ">
+                                Try Again
+                              </Button>
+                            </DialogClose>
+                          </div>
+                        
+                      </div>                      
+                  </DialogContent>
+                  
+                )}
+                  
+                </Dialog>
+                
 
               </div>
             
