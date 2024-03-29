@@ -1,9 +1,7 @@
 import React from 'react'
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import PeopleIcon from '@mui/icons-material/People';
-import Groups2Icon from '@mui/icons-material/Groups2';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';

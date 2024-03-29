@@ -1,3 +1,4 @@
+import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -6,13 +7,12 @@ import { useNavigate } from "react-router-dom"
 
 
 import { Button } from '@/components/ui/button'
-import { StudentSignupValidationSchema, StaffSignupValidationSchema } from "@/lib/validation"
+import { SignupValidationSchema, StaffSignupValidationSchema } from "@/lib/validation"
 
 import { storeCredentials } from "./storeCredentials"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -29,7 +29,6 @@ import {
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -51,38 +50,21 @@ const Signinform = () => {
   const navigate = useNavigate();
   const {toast} = useToast();
 
-  const form = useForm<z.infer<typeof StudentSignupValidationSchema>>({
-    resolver: zodResolver(StudentSignupValidationSchema),
+  const form = useForm<z.infer<typeof SignupValidationSchema>>({
+    resolver: zodResolver(SignupValidationSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
       email: "",
       department: "",
-      classGroup: "",
       level: "",
       password: ""
     },
   })
   
-  async function onSubmit(values: z.infer<typeof StudentSignupValidationSchema>) {
-    const isAccountCreated = storeCredentials({ email: values.email, 
-                                                password: values.password, 
-                                                userType: 'student' });
-    if(isAccountCreated){
-      toast({
-        variant: "destructive", 
-        title: "Successfully signed up",
-        description: "Redirecting you to the login page",
-      })
-      navigate('/sign-in')
-    }else{
-      toast({
-        variant: "destructive", 
-        title: "Account Creation Failed",
-        description: "try again",
-      })
-    }
+  async function onSubmit(values: z.infer<typeof SignupValidationSchema>) {
     
+  
 }
 
 const formB = useForm<z.infer<typeof StaffSignupValidationSchema>>({
@@ -97,23 +79,8 @@ const formB = useForm<z.infer<typeof StaffSignupValidationSchema>>({
 })
 
 async function onSubmitB(values: z.infer<typeof StaffSignupValidationSchema>) {
-  const isAccountCreated = storeCredentials({ email: values.email, 
-                                              password: values.password, 
-                                              userType: 'lecturer' });
-  if(isAccountCreated){
-    toast({
-      variant: "destructive", 
-      title: "Successfully signed up",
-      description: "Redirecting you to the login page",
-    })
-    navigate('/sign-in')
-  }else{
-    toast({
-      variant: "destructive", 
-      title: "Account Creation Failed",
-      description: "try again",
-    })
-  }
+  
+  
 }
 
   return (

@@ -107,7 +107,13 @@
     
     border: 1px solid black;
 }
-
+.bgImage{
+  background-image: url('/assets/Frame 2.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  
+}
 th, td {
     border: 1px solid black;
     text-align: center;
