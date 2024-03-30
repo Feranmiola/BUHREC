@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { useNavigate } from 'react-router-dom';
 
 import Leftbar from '@/components/shared/Leftbar';
-import LecturerLeftbar from '@/components/shared/LecturerLeftbar';
 import StudentLeftbar from '@/components/shared/StudentLeftbar';
 
 const Rootlayout = () => {
@@ -21,12 +20,13 @@ const Rootlayout = () => {
   if (user.userType === 'student') {
     LeftbarComponent = StudentLeftbar;
   } else if (user.userType === 'lecturer') {
-    LeftbarComponent = LecturerLeftbar;
+    LeftbarComponent = Leftbar;
+    
   } else {
     LeftbarComponent = Leftbar;
   }
-
   LeftbarComponent = Leftbar;
+
   
   
 
