@@ -101,11 +101,11 @@ const Home = () => {
                                                 </Button>
 
                                                 <p className="text-small-regular text-dark-2 text-center mt-3">Don't have an account?
-                                                <Link to = "/sign-up" className="text-primary-500 text-small-semibold ml-1">Sign-up</Link>
+                                                <Link to = "/sign-up" className="text-highlight-purple text-small-semibold ml-1">Sign-up</Link>
                                                 </p>
 
                                                 <p className="text-small-regular text-dark-2 text-center mt-3">
-                                                <Link to = "/adminSign-in" className="text-primary-500 text-small-semibold ml-1">Admin</Link>
+                                                <Link to = "/adminSign-in" className="text-highlight-purple text-small-semibold ml-1">Admin</Link>
                                                 </p>
                                                 
                                             </form>
@@ -176,11 +176,11 @@ const Home = () => {
                                                 </Button>
 
                                                 <p className="text-small-regular text-dark-2 text-center mt-3">Don't have an account?
-                                                <Link to = "/sign-up" className="text-primary-500 text-small-semibold ml-1">Sign-up</Link>
+                                                <Link to = "/sign-up" className="text-highlight-purple text-small-semibold ml-1">Sign-up</Link>
                                                 </p>
 
                                                 <p className="text-small-regular text-dark-2 text-center mt-3">
-                                                <Link to = "/adminSign-in" className="text-primary-500 text-small-semibold ml-1">Admin</Link>
+                                                <Link to = "/adminSign-in" className="text-highlight-purple text-small-semibold ml-1">Admin</Link>
                                                 </p>
                                                 
                                             </form>

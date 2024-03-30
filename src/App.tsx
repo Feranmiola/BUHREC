@@ -16,6 +16,7 @@ import {
           ReviewerCompletedReviwews,
           ReviewerOverview,
           ReviewerPayments,
+          ReviewerPendingReviewes,
           StudentAccount, 
           StudentAddNewPaper,
           StudentOverview,
@@ -67,7 +68,7 @@ function App() {
                 <Route path='/ReviewerCompletedReviwews' element = { <ReviewerCompletedReviwews/> }/>
                 <Route path='/ReviewerOverview' element = { <ReviewerOverview/> }/>
                 <Route path='/ReviewerPayments' element = { <ReviewerPayments/> }/>
-                <Route path='/ReviewerPendingReviewes' element = { <ReviewerCompletedReviwews/> }/>
+                <Route path='/ReviewerPendingReviewes' element = { <ReviewerPendingReviewes/> }/>
 
 
                 

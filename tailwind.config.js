@@ -36,6 +36,7 @@ module.exports = {
         'sidebar-header-purple': '#6C67FF',
         'sidebar-active-purple': '#6C67FF',
         'navbar-hover-purple': '#B37FFF',
+        'grid-bg-card': '#F0F0F0'
       },
       darkMode: "class",
       plugins: [nextui()],

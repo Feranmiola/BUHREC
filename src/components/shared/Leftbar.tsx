@@ -14,35 +14,35 @@ const Leftbar = () => {
     function useActive(path: string) {
       const location = useLocation();
       let isActive = location.pathname === path;
-       return isActive ? 'text-purple-600' : '';
+       return isActive ? 'text-sidebar-active-purple' : '';
     }
 
   return (    
     <Sidebar className='fixed h-screen bg-white'>
     <div className='mx-10'>
       <div className='mt-30 py-10 items-center justify-center mx-9'>      
-         <h2 className='text-purple-400 h2-bold'>Admin</h2>
+         <h2 className='text-title-purple font-roboto font-semibold text-2xl'>BUHREC</h2>
       </div>
     </div>
       <Menu className=''>
         <div className='py-16'>
           <div className='items-center'>
-          <div className='px-4 text-gray-500'>Your Dashboard</div>
-            <MenuItem component={<Link to="/ReviewerOverview" />} icon={<PersonIcon />} className={`hover:text-purple-600 ${useActive('/ReviewerOverview')}`}>Overview</MenuItem>
-            <MenuItem component={<Link to="/ReviewerPendingReviewes" />} icon={<LibraryBooksIcon />} className={`hover:text-purple-600 ${useActive('/ReviewerPendingReviewes')}`}>Pending Reviews</MenuItem>
-            <MenuItem component={<Link to="/ReviewerCompletedReviwews" />} icon={<HomeIcon />} className={`hover:text-purple-600 ${useActive('/ReviewerCompletedReviwews')}`}>Completed Reviews</MenuItem>
+          <div className='px-4 text-sidebar-header-purple font-roboto font-light'>Your Dashboard</div>
+            <MenuItem component={<Link to="/ReviewerOverview" />} icon={<PersonIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerOverview')}`}>Overview</MenuItem>
+            <MenuItem component={<Link to="/ReviewerPendingReviewes" />} icon={<LibraryBooksIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerPendingReviewes')}`}>Pending Reviews</MenuItem>
+            <MenuItem component={<Link to="/ReviewerCompletedReviwews" />} icon={<HomeIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerCompletedReviwews')}`}>Completed Reviews</MenuItem>
             
             
           </div>
           <div className='items-center mt-8'>
-          <div className='px-4 text-gray-500'>Your Account</div>
-            <MenuItem component={<Link to="ReviewerAccount/" />} icon={<CalendarMonthIcon />} className={`hover:text-purple-600 ${useActive('/ReviewerAccount')}`}>Account</MenuItem>          
-            <MenuItem component={<Link to="ReviewerPayments/" />} icon={<CalendarMonthIcon />} className={`hover:text-purple-600 ${useActive('/ReviewerPayments')}`}>Manage Payments</MenuItem>          
+          <div className='px-4 text-sidebar-header-purple font-roboto font-light'>Your Account</div>
+            <MenuItem component={<Link to="ReviewerAccount/" />} icon={<CalendarMonthIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerAccount')}`}>Account</MenuItem>          
+            <MenuItem component={<Link to="ReviewerPayments/" />} icon={<CalendarMonthIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerPayments')}`}>Manage Payments</MenuItem>          
           </div>
         </div>
         
         
-        <MenuItem component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className='py-20 hover:text-purple-600'>Logout</MenuItem>
+        <MenuItem component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className='py-20 hover:text-sidebar-active-purple'>Logout</MenuItem>
       </Menu>
     </Sidebar>
    
