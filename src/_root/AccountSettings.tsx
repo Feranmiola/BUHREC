@@ -16,7 +16,7 @@ import {
   import { Divider } from '@chakra-ui/react'
   import { Box } from '@chakra-ui/react'
   import { AbsoluteCenter } from '@chakra-ui/react'
-  import { ScrollArea } from '@/components/ui/scroll-area'
+  import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 const AccountSettings = () => {
     const form = useForm<z.infer<typeof ChangeAccountInformtionSchema>>({
@@ -43,6 +43,7 @@ const AccountSettings = () => {
   return (
     <div>
       <ScrollArea className='h-[600px]'>
+        
         <Form {...form}>
         <div className="">
             <div className=''>
@@ -204,7 +205,7 @@ const AccountSettings = () => {
                       </AbsoluteCenter>
                     </Box>
 
-                    <div className='flex'>
+                    <div className='flex mt-4'>
 
                       <FormField
                       control={form.control}
@@ -223,7 +224,7 @@ const AccountSettings = () => {
                       control={form.control}
                       name="discipline"
                       render={({ field }) => (
-                          <FormItem className="flex items-center">
+                          <FormItem className="flex items-center ml-5">
                               <FormLabel className="body-medium">Discipline:</FormLabel>
                               <FormControl>
                                   <Input type="text" placeholder="" className="shad-input ml-4 w-56" {...field} />

@@ -16,6 +16,10 @@ import {
 } from "@chakra-ui/react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import PropTypes from "prop-types";
+import {
+  Card,
+  CardContent,
+} from "@/components/ui/card"
 
 
 const lecturersData = [
@@ -69,7 +73,7 @@ interface StyledTextProps {
   className?: string;
 }
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 5;
 
 
 const ReviewerPayments = () => {
@@ -120,7 +124,26 @@ const ReviewerPayments = () => {
         <h2 className='font-roboto text-dashboard-page-header-purple  text-3xl font-semibold py-16 px-16'>Manage Payments</h2>
         <h2 className='font-roboto text-xl py-16 px-16'><span className='font-roboto text-highlight-purple'>Mr Kalesanwo</span> </h2>
       </div>
-      <div>
+      <div className="flex">
+          <Card className=' bg-grid-bg-card w-[225px] h-[100px]'>
+            <CardContent className=' justify-center items-center'>
+              <div className="justify-center items-center">
+                <h2 className="font-roboto font-bold text-3xl text-green-700 mt-5">#400,000</h2>
+                <p className="font-poppins text-xl">Recieved</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className=' bg-grid-bg-card w-[225px] h-[100px] mx-7'>
+            <CardContent className=' justify-center items-center'>
+              <div>
+                <h2 className="font-roboto font-bold text-3xl  text-red-700 mt-5">#270,000</h2>
+                <p className="font-poppins text-xl">Paid Out</p>
+              </div>
+            </CardContent>
+          </Card>
+      </div>
+      
+      <div className=" mt-6">
         <Box mb="1rem">
           <Flex justify="space-between" align="center">
             <InputGroup w="50%">
@@ -132,7 +155,7 @@ const ReviewerPayments = () => {
               />
             </InputGroup>
           </Flex>
-          <ScrollArea style={{ height: '500px', width: '100%' }} >
+          <ScrollArea style={{ height: '400px', width: '100%' }} >
             <ScrollBar orientation="vertical" className="w-2 fill-black"/>
           <TableContainer overflowY="auto">
             {searchValue ? (

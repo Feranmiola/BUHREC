@@ -18,30 +18,30 @@ const ReviewerOverview = () => {
       </div>
       <div className='flex flex-col justify-center items-center mt-5'>
         <div className='flex justify-between'>
-          <Card className=' bg-grid-bg-card w-[325px] h-[263px]'>
+          <Card className=' bg-grid-bg-card w-[325px] h-[233px]'>
             <CardContent className=' justify-center items-center'>
               <div>
-                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-14'>3</h1>
+                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-12'>3</h1>
                 <p className='font-roboto text-xl text-center mt-3'>Pending Reviews</p>
 
               </div>
               
             </CardContent>
           </Card>
-          <Card className=' bg-grid-bg-card w-[325px] h-[263px] ml-6'>
+          <Card className=' bg-grid-bg-card w-[325px] h-[233px] ml-6'>
             <CardContent className=' justify-center items-center'>
               <div>
-                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-14'>3</h1>
+                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-12'>3</h1>
                 <p className='font-roboto text-xl text-center mt-3'>Pending Reviews</p>
 
               </div>
               
             </CardContent>
           </Card>
-          <Card className=' bg-grid-bg-card w-[325px] h-[263px]  ml-6'>
+          <Card className=' bg-grid-bg-card w-[325px] h-[233px]  ml-6'>
             <CardContent className=' justify-center items-center'>
               <div>
-                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-14'>3</h1>
+                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-12'>3</h1>
                 <p className='font-roboto text-xl text-center mt-3'>Pending Reviews</p>
 
               </div>
@@ -50,30 +50,30 @@ const ReviewerOverview = () => {
           </Card>
         </div>
         <div className='flex justify-between mt-5'>
-        <Card className=' bg-grid-bg-card w-[325px] h-[263px]'>
+        <Card className=' bg-grid-bg-card w-[325px] h-[233px]'>
             <CardContent className=' justify-center items-center'>
               <div>
-                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-14'>3</h1>
+                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-12'>3</h1>
                 <p className='font-roboto text-xl text-center mt-3'>Pending Reviews</p>
 
               </div>
               
             </CardContent>
           </Card>
-          <Card className=' bg-grid-bg-card w-[325px] h-[263px] ml-6'>
+          <Card className=' bg-grid-bg-card w-[325px] h-[233px] ml-6'>
             <CardContent className=' justify-center items-center'>
               <div>
-                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-14'>3</h1>
+                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-12'>3</h1>
                 <p className='font-roboto text-xl text-center mt-3'>Pending Reviews</p>
 
               </div>
               
             </CardContent>
           </Card>
-          <Card className=' bg-grid-bg-card w-[325px] h-[263px]  ml-6'>
+          <Card className=' bg-grid-bg-card w-[325px] h-[233px]  ml-6'>
             <CardContent className=' justify-center items-center'>
               <div>
-                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-14'>3</h1>
+                <h1 className='font-roboto font-bold text-header-number-purple text-8xl text-center mt-12'>3</h1>
                 <p className='font-roboto text-xl text-center mt-3'>Pending Reviews</p>
 
               </div>

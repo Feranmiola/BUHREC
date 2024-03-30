@@ -47,3 +47,12 @@ export const SignupValidationSchema = z.object({
     program: z.string(),
     discipline: z.string(),
   })
+
+
+  export const AddNewCard = z.object({
+    digits: z.string(),
+    expiry: z.string(),
+    cvv: z.string(),
+    bankName: z.string(),
+    accountNumber: z.string(),
+  })
