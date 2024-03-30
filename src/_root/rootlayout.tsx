@@ -33,7 +33,7 @@ const Rootlayout = () => {
   return (
     <>
       <div className='w-screen flex'>
-        <LeftbarComponent/>
+        <StudentLeftbar/>
         <Toaster/>
           <main className=' bg-white w-full md:flex-grow px-10 h-screena'> 
             <Outlet/>

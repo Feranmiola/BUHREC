@@ -31,8 +31,6 @@ const Leftbar = () => {
             <MenuItem component={<Link to="/ReviewerOverview" />} icon={<PersonIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerOverview')}`}>Overview</MenuItem>
             <MenuItem component={<Link to="/ReviewerPendingReviewes" />} icon={<LibraryBooksIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerPendingReviewes')}`}>Pending Reviews</MenuItem>
             <MenuItem component={<Link to="/ReviewerCompletedReviwews" />} icon={<HomeIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerCompletedReviwews')}`}>Completed Reviews</MenuItem>
-            
-            
           </div>
           <div className='items-center mt-8'>
           <div className='px-4 text-sidebar-header-purple font-roboto font-light'>Your Account</div>
