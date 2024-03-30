@@ -11,18 +11,15 @@ import {
   InputGroup,
   InputLeftAddon,
   Input,
-  Spacer,
   Flex,
   Button as ChakraButton,
-  Center,
-  Link,
 } from "@chakra-ui/react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import PropTypes from "prop-types";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { Edit as EditIcon } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+// import DeleteIcon from "@mui/icons-material/Delete";
+// import { Edit as EditIcon } from "@mui/icons-material";
+// import { useNavigate } from "react-router-dom";
 
 const lecturersData = [
   {
@@ -82,7 +79,6 @@ const StudentReviews = () => {
 
   const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate();
   const filteredRows = lecturersData.filter((row) =>
     Object.values(row)
       .join(" ")
@@ -108,10 +104,6 @@ const StudentReviews = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
-  };
-
-  const handleAdd = () => {
-    navigate('/researcheroverview')
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

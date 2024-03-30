@@ -16,7 +16,7 @@ import {
   import { Divider } from '@chakra-ui/react'
   import { Box } from '@chakra-ui/react'
   import { AbsoluteCenter } from '@chakra-ui/react'
-  import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+  import { ScrollArea } from '@/components/ui/scroll-area'
 
 const AccountSettings = () => {
     const form = useForm<z.infer<typeof ChangeAccountInformtionSchema>>({

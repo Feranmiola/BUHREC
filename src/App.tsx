@@ -1,6 +1,6 @@
 import React from 'react';
 import {NextUIProvider} from "@nextui-org/react";
-import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
+import { PrimeReactProvider } from 'primereact/api';
 import { ChakraProvider } from '@chakra-ui/react'
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './globals.css'
