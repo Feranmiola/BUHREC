@@ -25,7 +25,7 @@ const Leftbar = () => {
       </div>
     </div>
       <Menu className=''>
-        <div className='py-16'>
+        <div className='mt-16'>
           <div className='items-center'>
           <div className='px-4 text-sidebar-header-purple font-roboto font-light'>Your Dashboard</div>
             <MenuItem component={<Link to="/ReviewerOverview" />} icon={<PersonIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerOverview')}`}>Overview</MenuItem>
@@ -36,13 +36,14 @@ const Leftbar = () => {
           </div>
           <div className='items-center mt-8'>
           <div className='px-4 text-sidebar-header-purple font-roboto font-light'>Your Account</div>
-            <MenuItem component={<Link to="ReviewerAccount/" />} icon={<CalendarMonthIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerAccount')}`}>Account</MenuItem>          
-            <MenuItem component={<Link to="ReviewerPayments/" />} icon={<CalendarMonthIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerPayments')}`}>Manage Payments</MenuItem>          
+          <MenuItem component={<Link to="/ReviewerAccount" />} icon={<CalendarMonthIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerAccount')}`}>Manage Account</MenuItem>
+            <MenuItem component={<Link to="/ReviewerPayments" />} icon={<CalendarMonthIcon />} className={`hover:text-sidebar-active-purple ${useActive('/ReviewerPayments')}`}>View Payments</MenuItem>
           </div>
         </div>
-        
-        
-        <MenuItem component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className='py-20 hover:text-sidebar-active-purple'>Logout</MenuItem>
+        <div>
+          <MenuItem component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className=' mt-32 hover:text-sidebar-active-purple'>Logout</MenuItem>
+        </div>
+
       </Menu>
     </Sidebar>
    

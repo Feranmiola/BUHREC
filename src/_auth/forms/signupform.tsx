@@ -60,6 +60,7 @@ const SignupForm = () => {
       lastName: "",
       email: "",
       phone: "",
+      sex: "",
       address: "",
       city: "",
       state: "",

@@ -27,31 +27,37 @@ import { useNavigate } from "react-router-dom";
 const lecturersData = [
   {
     name: "The Advent o technology in society",
+    author: "James Markman",
     date: "2022-03-12",
     paid: "Yes",
   },
   {
     name: "The Advent o technology in society",
+    author: "James Markman",
     date: "2022-03-12",
     paid: "Yes",
   },
   {
     name: "The Advent o technology in society",
+    author: "James Markman",
     date: "2022-03-12",
     paid: "Yes",
   },
   {
     name: "The Advent o technology in society",
+    author: "James Markman",
     date: "2022-03-12",
     paid: "Yes",
   },
   {
     name: "The Advent o technology in society",
+    author: "James Markman",
     date: "2022-03-12",
     paid: "Yes",
   },
   {
     name: "The Advent o technology in society",
+    author: "James Markman",
     date: "2022-03-12",
     paid: "Yes",
   },
@@ -137,15 +143,17 @@ const ReviewerPendingReviewes = () => {
                 <Thead>
                   <Tr>
                     <Th className="px-6 py-3 whitespace-nowrap">Name</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Author</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Actions</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {filteredRows.map(({ name, date, paid }, index) => (
+                  {filteredRows.map(({ name, author, date, paid }, index) => (
                     <Tr key={index}>
                         <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
+                        <Td className="px-6 py-4 whitespace-nowrap">{author}</Td>
                         <Td className="px-6 py-4 whitespace-nowrap">
                         {date && <span>{date}</span>}
                       </Td>
@@ -156,15 +164,15 @@ const ReviewerPendingReviewes = () => {
                         <Spacer />
                         <Flex
                           className=""
-                          justify="space-between"
+                          
                           align="center"
                         >
                           <Button
-                          className=" bg-blue-200 hover:bg-blue-300"
+                          className=" bg-blue-200 hover:bg-blue-300 h-9"
                           >Review</Button>
 
                           <Button
-                            className=" ml-5 bg-green-300 hover:bg-green-400"
+                            className=" ml-5 bg-green-300 h-9  hover:bg-green-400"
                           >Mark Complete</Button>
                         </Flex>
                       </Td>
@@ -177,15 +185,17 @@ const ReviewerPendingReviewes = () => {
                   <Thead>
                     <Tr>
                     <Th className="px-6 py-3 whitespace-nowrap">Name</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Author</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Actions</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                {currentData.map(({ name, date, paid }, index) => (
+                {currentData.map(({ name, author, date, paid }, index) => (
                     <Tr key={index}>
                       <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
+                      <Td className="px-6 py-4 whitespace-nowrap">{author}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{date}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{paid}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">
@@ -195,11 +205,11 @@ const ReviewerPendingReviewes = () => {
                           align="center"
                         >
                           <Button
-                          className=" bg-blue-200 hover:bg-blue-300"
+                          className=" bg-blue-200 hover:bg-blue-300 h-9"
                           >Review</Button>
 
                           <Button
-                            className=" ml-5 bg-green-300 hover:bg-green-400"
+                            className=" ml-5 bg-green-300 h-9  hover:bg-green-400"
                           >Mark Complete</Button>
                         </Flex>
                       </Td>

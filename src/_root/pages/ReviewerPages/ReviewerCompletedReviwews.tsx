@@ -11,14 +11,12 @@ import {
   InputGroup,
   InputLeftAddon,
   Input,
-  Spacer,
   Flex,
   Button as ChakraButton,
 } from "@chakra-ui/react";
-import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
+
 
 const lecturersData = [
   {
@@ -78,7 +76,7 @@ const ReviewerCompletedReviwews = () => {
 
   const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate();
+  
   const filteredRows = lecturersData.filter((row) =>
     Object.values(row)
       .join(" ")
@@ -106,9 +104,6 @@ const ReviewerCompletedReviwews = () => {
     }
   };
 
-  const handleAdd = () => {
-    navigate('/researcheroverview')
-  };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
