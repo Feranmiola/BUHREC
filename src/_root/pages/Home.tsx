@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { Card, Col, Row } from 'antd';
 import { Button } from '@/components/ui/button';
@@ -25,6 +25,7 @@ import {
 
 
 const Home = () => {
+    const navigare = useNavigate()
     const form = useForm<z.infer<typeof SigninValidationSchema>>({
         resolver: zodResolver(SigninValidationSchema),
         defaultValues: {
@@ -35,6 +36,9 @@ const Home = () => {
 
     async function onSubmit(values: z.infer<typeof SigninValidationSchema>) {
         console.log(values)
+
+        navigare('/ReviewerOverview');
+
     }
 
 
