@@ -56,3 +56,9 @@ export const SignupValidationSchema = z.object({
     bankName: z.string(),
     accountNumber: z.string(),
   })
+
+  export const MakeNewComplaintSchema = z.object({
+    email: z.string().email(),
+    phone: z.string(),
+    complain: z.string(),
+  })

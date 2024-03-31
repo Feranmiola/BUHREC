@@ -48,7 +48,7 @@ const Home = () => {
         <div className='bgImage h-[1025px]'>
             <div className='flex px-12 justify-between py-10'>
                 <div>
-                <h2 className='text-title-purple font-roboto text-2xl font-bold'>BUHREC</h2>
+                    <h2 className='text-title-purple font-roboto text-2xl font-bold'><Link to='/'>BUHREC</Link></h2>
                 </div>
                 
                 <div className='flex flex-row justify-center'>

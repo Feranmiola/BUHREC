@@ -24,42 +24,48 @@ import PropTypes from "prop-types";
 const lecturersData = [
   {
     name: "The Advent o technology in society",
-    author: "James Markman",
+    reviewer: "James Markman",
+    reviewerEmail:"text@email.com",
     date: "2022-03-12",
     paid: "Yes",
     status: "Reviewing",
   },
   {
     name: "The Advent o technology in society",
-    author: "James Markman",
+    reviewer: "James Markman",
+    reviewerEmail:"text@email.com",
     date: "2022-03-12",
     paid: "Yes",
     status: "Reviewed",
   },
   {
     name: "The Advent o technology in society",
-    author: "James Markman",
+    reviewer: "James Markman",
+    reviewerEmail:"text@email.com",
     date: "2022-03-12",
     paid: "Yes",
     status: "Not Reviewed",
   },
   {
     name: "The Advent o technology in society",
-    author: "James Markman",
+    reviewer: "James Markman",
+    reviewerEmail:"text@email.com",
     date: "2022-03-12",
     paid: "Yes",
     status: "Reviewing",
   },
   {
     name: "The Advent o technology in society",
-    author: "James Markman",
+    reviewer: "James Markman",
+    reviewerEmail:"text@email.com",
     date: "2022-03-12",
     paid: "Yes",
     status: "Reviewing",
   },
   {
     name: "The Advent o technology in society",
-    author: "James Markman",
+    reviewer: "James Markman",
+    reviewerEmail:"text@email.com",
     date: "2022-03-12",
     paid: "Yes",
     status: "Reviewing",
@@ -141,17 +147,19 @@ const StudentReviews = () => {
                 <Thead>
                   <Tr>
                     <Th className="px-6 py-3 whitespace-nowrap">Name</Th>
-                    <Th className="px-6 py-3 whitespace-nowrap">Author</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Reviewer</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Email</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Status</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {filteredRows.map(({ name, author, date, paid, status }, index) => (
+                  {filteredRows.map(({ name, reviewer, reviewerEmail, date, paid, status }, index) => (
                     <Tr key={index}>
                         <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
-                        <Td className="px-6 py-4 whitespace-nowrap">{author}</Td>
+                        <Td className="px-6 py-4 whitespace-nowrap">{reviewer}</Td>
+                        <Td className="px-6 py-4 whitespace-nowrap">{reviewerEmail}</Td>
                         <Td className="px-6 py-4 whitespace-nowrap">
                         {date && <span>{date}</span>}
                       </Td>
@@ -168,17 +176,19 @@ const StudentReviews = () => {
                   <Thead>
                     <Tr>
                     <Th className="px-6 py-3 whitespace-nowrap">Name</Th>
-                    <Th className="px-6 py-3 whitespace-nowrap">Author</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Reviewer</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Email</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Status</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                {currentData.map(({ name, author, date, paid, status }, index) => (
+                {currentData.map(({ name, reviewer, reviewerEmail, date, paid, status }, index) => (
                     <Tr key={index}>
                       <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
-                      <Td className="px-6 py-4 whitespace-nowrap">{author}</Td>
+                      <Td className="px-6 py-4 whitespace-nowrap">{reviewer}</Td>
+                      <Td className="px-6 py-4 whitespace-nowrap">{reviewerEmail}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{date}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{paid}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{status}</Td>

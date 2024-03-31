@@ -22,6 +22,7 @@ const lecturersData = [
   {
     name: "The Advent o technology in society",
     author: "James Markman",
+    authorEmail:"text@email.com",
     date: "2022-03-12",
     dateReviewed: "2022-03-12",
     paid: "Yes",
@@ -29,6 +30,7 @@ const lecturersData = [
   {
     name: "The Advent o technology in society",
     author: "James Markman",
+    authorEmail:"text@email.com",
     date: "2022-03-12",
     dateReviewed: "2022-03-12",
     paid: "Yes",
@@ -36,6 +38,7 @@ const lecturersData = [
   {
     name: "The Advent o technology in society",
     author: "James Markman",
+    authorEmail:"text@email.com",
     date: "2022-03-12",
     dateReviewed: "2022-03-12",
     paid: "Yes",
@@ -43,6 +46,7 @@ const lecturersData = [
   {
     name: "The Advent o technology in society",
     author: "James Markman",
+    authorEmail:"text@email.com",
     date: "2022-03-12",
     dateReviewed: "2022-03-12",
     paid: "Yes",
@@ -50,6 +54,7 @@ const lecturersData = [
   {
     name: "The Advent o technology in society",
     author: "James Markman",
+    authorEmail:"text@email.com",
     date: "2022-03-12",
     dateReviewed: "2022-03-12",
     paid: "Yes",
@@ -57,6 +62,7 @@ const lecturersData = [
   {
     name: "The Advent o technology in society",
     author: "James Markman",
+    authorEmail:"text@email.com",
     date: "2022-03-12",
     dateReviewed: "2022-03-12",
     paid: "Yes",
@@ -141,16 +147,18 @@ const ReviewerCompletedReviwews = () => {
                   <Tr>
                     <Th className="px-6 py-3 whitespace-nowrap">Name</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Author</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Email</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Reviewed</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {filteredRows.map(({ name, author, date, dateReviewed, paid }, index) => (
+                  {filteredRows.map(({ name, author, authorEmail, date, dateReviewed, paid }, index) => (
                     <Tr key={index}>
                         <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
                         <Td className="px-6 py-4 whitespace-nowrap">{author}</Td>
+                        <Td className="px-6 py-4 whitespace-nowrap">{authorEmail}</Td>
                         <Td className="px-6 py-4 whitespace-nowrap">
                         {date && <span>{date}</span>}
                       </Td>
@@ -171,16 +179,18 @@ const ReviewerCompletedReviwews = () => {
                     <Tr>
                     <Th className="px-6 py-3 whitespace-nowrap">Name</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Author</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Email</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Date Reviewed</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                {currentData.map(({ name, author, date, dateReviewed, paid }, index) => (
+                {currentData.map(({ name, author, authorEmail, date, dateReviewed, paid }, index) => (
                     <Tr key={index}>
                       <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{author}</Td>
+                      <Td className="px-6 py-4 whitespace-nowrap">{authorEmail}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{date}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{dateReviewed}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{paid}</Td>

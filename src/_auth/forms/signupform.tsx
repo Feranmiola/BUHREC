@@ -168,7 +168,17 @@ const SignupForm = () => {
                           <FormItem className="flex items-center mx-4"> 
                           <FormLabel className="body-medium font-poppins">Sex:</FormLabel>
                           <FormControl>
-                            <Input type="text" placeholder="" className="shad-input ml-4 w-40" {...field} />
+                          <div className=" w-24 ml-4">
+                            <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
+                                <SelectTrigger className="w-full shad-select bg-white border-2">
+                                  <SelectValue placeholder="Sex" />
+                                </SelectTrigger>
+                                  <SelectContent className="bg-white">
+                                    <SelectItem value="male" className="hover:bg-gray-200">Male</SelectItem>
+                                    <SelectItem value="female" className="hover:bg-gray-Researcher">Female</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
                           </FormControl>
                           <FormMessage />
                         </FormItem>

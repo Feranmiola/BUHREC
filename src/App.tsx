@@ -12,6 +12,10 @@ import Home from './_root/pages/Home';
 
 
 import {   
+  AddNewPaper,
+  ManageReviewerAccounts,
+  ManageReviews,
+  ManageSupportQuestions,
   ReviewerAccount,
           ReviewerCompletedReviwews,
           ReviewerOverview,
@@ -29,6 +33,8 @@ import Rootlayout from './_root/rootlayout';
 import SignedOut from './_auth/forms/SignedOut';
 import { Toaster } from "@/components/ui/toaster";
 import PageNotFound from './_auth/forms/PageNotFound';
+import Support from './_root/pages/Support';
+import ManageResearcherAccounts from './_root/pages/Admin Pages/ManageResearcherAccounts';
 
 
 
@@ -54,6 +60,7 @@ function App() {
                 <Route path= "/sign-up" element = { <Signupform/> } />
                 <Route path= "/adminSign-in" element = { <AdminSignIn/> } />
                 <Route path='/SignedOut' element = { <SignedOut/> }/>
+                <Route path='/support' element = { <Support/> }/>
                 <Route path='/PageNotFound' element = { <PageNotFound/> }/>
                 <Route path="*" element={<PageNotFound />} />
               
@@ -77,6 +84,14 @@ function App() {
                 <Route path='/StudentAccount' element = { <StudentAccount/> }/>
                 <Route path='/StudentAddNewPaper' element = { <StudentAddNewPaper/> }/>
                 <Route path='/StudentReviews' element = { <StudentReviews/> }/>
+                <Route path='/AddNewPaper' element = { <AddNewPaper/> }/>
+
+
+                <Route path='/manageresearcheraccounts' element = { <ManageResearcherAccounts/> }/>
+                <Route path='/managereviews' element = { <ManageReviews/> }/>
+                <Route path='/manageSupportQuestions' element = { <ManageSupportQuestions/> }/>
+                <Route path='/managerevieweraccounts' element = { <ManageReviewerAccounts/> }/>
+
 
               </Route>
 
