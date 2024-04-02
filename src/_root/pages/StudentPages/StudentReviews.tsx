@@ -14,16 +14,20 @@ import {
   Flex,
   Button as ChakraButton,
 } from "@chakra-ui/react";
-// import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import PropTypes from "prop-types";
+const html2pdf = require('html2pdf.js');
+import ReactDOM from 'react-dom';
+import { useToast } from "@/components/ui/use-toast"
 // import DeleteIcon from "@mui/icons-material/Delete";
 // import { Edit as EditIcon } from "@mui/icons-material";
 // import { useNavigate } from "react-router-dom";
 
 const lecturersData = [
   {
-    name: "The Advent o technology in society",
+    name: "The Advent of technology in society",
+    author: "Jakob, Vance",
     reviewer: "James Markman",
     reviewerEmail:"text@email.com",
     date: "2022-03-12",
@@ -31,7 +35,8 @@ const lecturersData = [
     status: "Reviewing",
   },
   {
-    name: "The Advent o technology in society",
+    name: "The Advent of technology in society",
+    author: "Jakob, Vance",
     reviewer: "James Markman",
     reviewerEmail:"text@email.com",
     date: "2022-03-12",
@@ -39,7 +44,8 @@ const lecturersData = [
     status: "Reviewed",
   },
   {
-    name: "The Advent o technology in society",
+    name: "The Advent of technology in society",
+    author: "Jakob, Vance",
     reviewer: "James Markman",
     reviewerEmail:"text@email.com",
     date: "2022-03-12",
@@ -47,7 +53,8 @@ const lecturersData = [
     status: "Not Reviewed",
   },
   {
-    name: "The Advent o technology in society",
+    name: "The Advent of technology in society",
+    author: "Jakob, Vance",
     reviewer: "James Markman",
     reviewerEmail:"text@email.com",
     date: "2022-03-12",
@@ -55,7 +62,8 @@ const lecturersData = [
     status: "Reviewing",
   },
   {
-    name: "The Advent o technology in society",
+    name: "The Advent of technology in society",
+    author: "Jakob, Vance",
     reviewer: "James Markman",
     reviewerEmail:"text@email.com",
     date: "2022-03-12",
@@ -63,7 +71,8 @@ const lecturersData = [
     status: "Reviewing",
   },
   {
-    name: "The Advent o technology in society",
+    name: "The Advent of technology in society",
+    author: "Jakob, Vance",
     reviewer: "James Markman",
     reviewerEmail:"text@email.com",
     date: "2022-03-12",
@@ -115,10 +124,65 @@ const StudentReviews = () => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
   };
+  
+  const { toast } = useToast()
 
   
   const totalRows = Math.ceil(filteredRows.length / PAGE_SIZE);
   const totalPages = Math.max(totalRows, 1);
+
+  const downloadCertificate = (title: string, author: string, year: number, reviewer: string, reviewed: string) => {
+    if(reviewed == "Reviewed"){
+        const certificate = (
+          <div id="certificate" className="border-4 border-black border-double p-6 bg-white">
+            <h1 className="text-3xl font-roboto text-bold text-center text-title-purple">BUHREC</h1>
+            <div className=" p-6">
+              <section className="flex flex-col pt-10">
+                <h1 className="text-center font-poppins text-4xl mt-5">Certificate of Review of</h1>
+                <h1 className="text-center font-roboto font-bold text-5xl mt-5  text-text-purple">{title}</h1>
+                <h2 className="text-center text-2xl font-poppins font-semibold mt-7">Author: {author}</h2>
+              </section>
+              <h3 className="text-center font-poppins font-semibold mt-7">Year: {year}</h3>
+              <div className="mt-7" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div className="justify-centers items-center flex flex-col">
+                  <p className="font-poppins font-semibold">SIGNED</p>
+                  <p className="font-poppins font-bold">{reviewer}</p>
+                </div>
+                <div>
+                  <p className="font-poppins font-semibold flex flex-col">SIGNED</p>
+                  <p className="font-poppins font-bold">BUHREC</p>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        );
+    
+        const tempDiv = document.createElement('div');
+        document.body.appendChild(tempDiv);
+    
+        ReactDOM.render(certificate, tempDiv, () => {
+          html2pdf().set({
+            margin: 1,
+            filename: 'certificate.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 3, logging: true, dpi: 192, letterRendering: true },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+          }).from(tempDiv).save();
+    
+          document.body.removeChild(tempDiv);
+        });
+    }else{
+      toast({
+        variant: "destructive",
+        title: "Paper not Reviewed Yet",
+        description: "Come back later",
+      })
+    }
+    
+  };
+
+
 
 
   return (
@@ -152,10 +216,11 @@ const StudentReviews = () => {
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Status</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Actions</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {filteredRows.map(({ name, reviewer, reviewerEmail, date, paid, status }, index) => (
+                  {filteredRows.map(({ name, author, reviewer, reviewerEmail, date, paid, status }, index) => (
                     <Tr key={index}>
                         <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
                         <Td className="px-6 py-4 whitespace-nowrap">{reviewer}</Td>
@@ -167,6 +232,17 @@ const StudentReviews = () => {
                         {paid && <span>{paid}</span>}
                       </Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{status}</Td>
+                      <Td className="px-6 py-4 whitespace-nowrap">
+                        
+                        <Flex
+                          className=""
+                          
+                          align="center"
+                        >
+                           <Button className="ml-5 bg-green-300 h-9 hover:bg-green-400"  
+                           onClick={() => downloadCertificate(name, author, 2024, reviewer, status)}>Get Certificate</Button>
+                        </Flex>
+                      </Td>
                     </Tr>
                   ))}
                 </Tbody>
@@ -181,10 +257,11 @@ const StudentReviews = () => {
                     <Th className="px-6 py-3 whitespace-nowrap">Date Submitted</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Paid</Th>
                     <Th className="px-6 py-3 whitespace-nowrap">Status</Th>
+                    <Th className="px-6 py-3 whitespace-nowrap">Actions</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
-                {currentData.map(({ name, reviewer, reviewerEmail, date, paid, status }, index) => (
+                {currentData.map(({ name, author, reviewer, reviewerEmail, date, paid, status }, index) => (
                     <Tr key={index}>
                       <Td className="px-6 py-4 whitespace-nowrap">{name}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{reviewer}</Td>
@@ -192,6 +269,15 @@ const StudentReviews = () => {
                       <Td className="px-6 py-4 whitespace-nowrap">{date}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{paid}</Td>
                       <Td className="px-6 py-4 whitespace-nowrap">{status}</Td>
+                      <Td className="px-6 py-4 whitespace-nowrap">
+                        
+                        <Flex
+                          className=" justify-center items-center"
+                        >
+                           <Button className="ml-5 bg-green-300 h-9 hover:bg-green-400"  
+                           onClick={() => downloadCertificate(name, author, 2024, reviewer, status)}>Get Certificate</Button>
+                        </Flex>
+                      </Td>
                     </Tr>
                   ))}
                 </Tbody>

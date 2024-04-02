@@ -76,7 +76,17 @@ const AddNewPaper = () => {
         </div>
         <div className='flex'>
             <Checkbox onChange={e => setChecked(!!e.checked)} checked={checked}></Checkbox>
-            <label className='ml-4'>Click here if you have read through the instructions</label>
+            <div className='flex flex-row'>
+              <label className='ml-4 font-poppins'>Click here if you have read through the ‎  </label>
+              <Dialog>
+                <DialogTrigger>
+                <p className='font-poppins text-text-purple '>instructions</p>
+                </DialogTrigger>
+                <DialogContent>
+
+                </DialogContent>
+              </Dialog>
+            </div>
         </div>
         <div>
             {checked ? (
@@ -101,7 +111,7 @@ const AddNewPaper = () => {
                         <h3 className='font-poppins font-semibold text-xl'>Complete the Submission and Payment</h3>
                         <div className='mt-5 flex flex-col py-6 justify-center items-center'>
                         <PaystackConsumer {...componentProps} >
-                                {({initializePayment}) => <button className='shad-button_primary w-72 text-center justify-center items-center h-11 rounded' onClick={() => initializePayment(handleSuccess, handleClose)}>Paystack Consumer Implementation</button>}
+                                {({initializePayment}) => <button className='shad-button_primary w-44 text-center justify-center items-center h-11  rounded-xl' onClick={() => initializePayment(handleSuccess, handleClose)}>Pay with Paystack</button>}
                         </PaystackConsumer>
                         <Dialog>
                             <DialogTrigger asChild>
