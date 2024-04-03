@@ -2,35 +2,31 @@ import React from 'react';
 import { Outlet } from 'react-router-dom'
 import { Toaster } from "@/components/ui/toaster";
 import { useNavigate } from 'react-router-dom';
-
 import Leftbar from '@/components/shared/Leftbar';
 import StudentLeftbar from '@/components/shared/StudentLeftbar';
+import AdminLeftbar from '@/components/shared/AdminLeftbar';
+import { getCurrentUser } from '@/_auth/forms/storeCredentials';
 
 const Rootlayout = () => {
-  const isAuthenticated = true;
   const navigate = useNavigate();
+ 
+  const currentUser = getCurrentUser();
   
-  if(!isAuthenticated){
-    navigate('/sign-in');
+  let LeftbarComponent = () => <></>; // Default to a no-op component
+
+  if (!currentUser) {
+    navigate('/')
+  }else{
+    if (currentUser.userType === 'Researcher') {
+      LeftbarComponent = StudentLeftbar;
+    } else if (currentUser.userType === 'Reviewer') {
+      LeftbarComponent = Leftbar;
+    } else {
+      LeftbarComponent = AdminLeftbar;
+    }
   }
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
-
-  
-  let LeftbarComponent;
-  if (user.userType === 'student') {
-    LeftbarComponent = StudentLeftbar;
-  } else if (user.userType === 'lecturer') {
-    LeftbarComponent = Leftbar;
-    
-  } else {
-    LeftbarComponent = Leftbar;
-  }
-  
-  LeftbarComponent = Leftbar;
-
   
   
-
   return (
     <>
       <div className='w-screen flex'>

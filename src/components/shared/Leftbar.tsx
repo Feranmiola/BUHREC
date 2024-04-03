@@ -8,6 +8,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { logoutUser } from '@/_auth/forms/storeCredentials';
 
 
 const Leftbar = () => {
@@ -17,6 +18,10 @@ const Leftbar = () => {
       let isActive = location.pathname === path;
        return isActive ? 'text-sidebar-active-purple' : '';
     }
+
+  const handleSignOut=()=>{
+    logoutUser();
+  }
 
   return (    
     <Sidebar className='fixed h-screen bg-white'>
@@ -40,7 +45,7 @@ const Leftbar = () => {
           </div>
         </div>
         <div>
-          <MenuItem component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className=' mt-32 hover:text-sidebar-active-purple'>Logout</MenuItem>
+          <MenuItem onClick={handleSignOut} component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className=' mt-32 hover:text-sidebar-active-purple'>Logout</MenuItem>
         </div>
 
       </Menu>

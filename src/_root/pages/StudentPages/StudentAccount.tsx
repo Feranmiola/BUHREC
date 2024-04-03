@@ -5,6 +5,8 @@ import PaymentSettings from '@/_root/PaymentSettings';
 import ManagePasswords from '@/_root/ManagePasswords';
 
 const StudentAccount = () => {
+  
+  
   return (
     <div>
       <div className='  flex justify-between items-start'>

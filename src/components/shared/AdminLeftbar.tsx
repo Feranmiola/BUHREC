@@ -7,15 +7,22 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import HelpIcon from '@mui/icons-material/Help';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { logoutUser } from '@/_auth/forms/storeCredentials';
 
 
-const Leftbar = () => {
+
+const AdminLeftbar = () => {
 
     function useActive(path: string) {
       const location = useLocation();
       let isActive = location.pathname === path;
        return isActive ? 'text-sidebar-active-purple' : '';
     }
+
+    const handleSignOut=()=>{
+      logoutUser();
+    }
+  
 
   return (    
     <Sidebar className='fixed h-screen bg-white'>
@@ -35,7 +42,7 @@ const Leftbar = () => {
           </div>
         </div>
         <div>
-          <MenuItem component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className=' mt-32 hover:text-sidebar-active-purple'>Logout</MenuItem>
+          <MenuItem onClick={handleSignOut} component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className=' mt-32 hover:text-sidebar-active-purple'>Logout</MenuItem>
         </div>
 
       </Menu>
@@ -44,4 +51,4 @@ const Leftbar = () => {
   )
 }
 
-export default Leftbar
+export default AdminLeftbar

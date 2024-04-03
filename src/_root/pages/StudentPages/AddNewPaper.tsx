@@ -1,42 +1,40 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Checkbox } from 'primereact/checkbox';
-import { InboxOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { message, Upload } from 'antd';
+
+import { message } from 'antd';
 import { Button } from '@/components/ui/button';
 import {
     Dialog,
     DialogContent,
     DialogTrigger,
   } from "@/components/ui/dialog"
-const { Dragger } = Upload;
 import { PaystackConsumer } from 'react-paystack';
 
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from "@chakra-ui/react";
 
-const props: UploadProps = {
-    name: 'file',
-    multiple: true,
-    action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
-    onChange(info) {
-      let { status } = info.file;
-      if (status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
-      status = 'done';
-      if (status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully.`);
-      } else if (status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-      }
-    // },
-    // onDrop(e) {
-    //   console.log('Dropped files', e.dataTransfer.files);
-    // 
-    },
-  };
+
+
 
 const AddNewPaper = () => {
+  
+const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  if (event.target.files && event.target.files.length > 0) {
+    setSelectedFile(event.target.files[0]);
+  }
+};
+
+
     const config = {
         reference: (new Date()).getTime().toString(),
         email: "user@example.com",
@@ -82,8 +80,83 @@ const AddNewPaper = () => {
                 <DialogTrigger>
                 <p className='font-poppins text-text-purple '>instructions</p>
                 </DialogTrigger>
-                <DialogContent>
-
+                <DialogContent className='bg-white'>
+                  <div className=''>
+                    <h2 className='text-text-purple font-poppins'>File Upload Instructions</h2>
+                    <TableContainer overflowY="auto" overflowX='auto' className=''>
+                    <Table className="">
+                      <Thead>
+                        <Tr>
+                        <Th className=""></Th>
+                        <Th className="">Undergraduate <br/>(Max Humber of Words) </Th>
+                        <Th className="">Postgraduate <br/>(Max Humber of Words) </Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                        <Tr>
+                          <Td className=" text-text-purple font-roboto">Title</Td>
+                          <Td className="">23</Td>
+                          <Td className="">23</Td>
+                        </Tr>
+                    </Tbody>
+                    </Table>
+                    </TableContainer>
+                  </div>
                 </DialogContent>
               </Dialog>
             </div>
@@ -94,16 +167,20 @@ const AddNewPaper = () => {
                     <div className=' justify-center items-center flex flex-col'>
                         <h3 className='font-poppins font-semibold text-xl'>Upload the Document</h3>
                         <div className='py-5'>
-                            <Dragger {...props}>
-                                <p className="ant-upload-drag-icon">
-                                <InboxOutlined />
-                                </p>
-                                <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                                <p className="ant-upload-hint">
-                                Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-                                banned files.
-                                </p>
-                            </Dragger>
+                        <div className="flex items-center justify-center w-[800px]">
+                                <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                        </svg>
+                                        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">SDF or Word files only!! (MAX. 800x400px)</p>
+                                    </div>
+                                    {selectedFile && <p className="mt-2 text-sm text-gray-700">{selectedFile.name}</p>}
+                                    <input type="file" className="hidden" onChange={onFileChange}/>
+                                </label>
+                            </div> 
+                            
 
                         </div>
                     </div>
@@ -113,14 +190,6 @@ const AddNewPaper = () => {
                         <PaystackConsumer {...componentProps} >
                                 {({initializePayment}) => <button className='shad-button_primary w-44 text-center justify-center items-center h-11  rounded-xl' onClick={() => initializePayment(handleSuccess, handleClose)}>Pay with Paystack</button>}
                         </PaystackConsumer>
-                        <Dialog>
-                            <DialogTrigger asChild>
-                                
-                            </DialogTrigger>
-                            <DialogContent className="sm:max-w-[425px] bg-white">
-                            </DialogContent>
-                        </Dialog>
-
                         <Button className='bg-button-bg text-white w-44 hover:bg-button-hover-bg mt-9' onClick={handleSubmit} >Complete Submission</Button>
                             
                         </div>

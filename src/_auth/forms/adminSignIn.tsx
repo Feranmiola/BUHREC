@@ -5,7 +5,7 @@ import { z } from "zod"
 
 import { Button } from '@/components/ui/button'
 import { SigninValidationSchema } from "@/lib/validation"
-import { checkAdminCredentials } from "./storeCredentials"
+import { loginAdmin } from "./storeCredentials"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -39,27 +39,23 @@ const AdminSignIn = () => {
   })
   
   async function onSubmit(values: z.infer<typeof SigninValidationSchema>) {
-    const isAuthenticated = checkAdminCredentials(values.email,values.password);
+    const isAuthenticated = loginAdmin(values.email,values.password);
     
     if(isAuthenticated){
       toast({
-        variant: "destructive", 
+        variant: "mydeafult", 
         title: "Successfully signed in",
         description: "Redirecting you to the dashboard",
       })
-
-    localStorage.setItem('user', JSON.stringify(true));
-
-      navigate('/')
+      navigate('/manageresearcheraccounts')
   
     }else{
       toast({
-        variant: "destructive", 
+        variant: "mydeafult", 
         title: "Sign In Failed",
         description: "Incorrect email or password",
       })
     }
-    
 }
 
   return (

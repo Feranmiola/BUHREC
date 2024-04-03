@@ -6,6 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { logoutUser } from '@/_auth/forms/storeCredentials';
 
 
 const StudentLeftbar = () => {
@@ -15,6 +16,10 @@ const StudentLeftbar = () => {
       let isActive = location.pathname === path;
        return isActive ? 'text-sidebar-active-purple' : '';
     }
+    const handleSignOut=()=>{
+      logoutUser();
+    }
+  
 
   return (    
     <Sidebar className='fixed h-screen bg-white'>
@@ -39,7 +44,7 @@ const StudentLeftbar = () => {
         </div>
         
         
-        <MenuItem component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className=' mt-32 hover:text-sidebar-active-purple'>Logout</MenuItem>
+        <MenuItem onClick={handleSignOut} component={<Link to="/SignedOut" />} icon={<LogoutIcon />} className=' mt-32 hover:text-sidebar-active-purple'>Logout</MenuItem>
       </Menu>
     </Sidebar>
    

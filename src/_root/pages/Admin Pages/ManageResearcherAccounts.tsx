@@ -14,6 +14,7 @@ import {
   Spacer,
   Flex,
   Button as ChakraButton,
+  useToast,
 } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -115,6 +116,14 @@ const ManageResearcherAccounts = () => {
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchValue(e.currentTarget.value);
     };
+    const toast = useToast();
+
+    const handleDalate =()=>{
+      toast({
+        variant: "mydeafult", 
+        title: "Successfully Deleted",
+      })
+    }
   
     
     const totalRows = Math.ceil(filteredRows.length / PAGE_SIZE);
@@ -171,6 +180,7 @@ const ManageResearcherAccounts = () => {
                       align="center"
                     >
                       <Button
+                      onClick={handleDalate}
                       className=" bg-red-200 hover:bg-red-400 hover:text-white h-9"
                       >Delete Account</Button>
                     </Flex>
@@ -207,6 +217,7 @@ const ManageResearcherAccounts = () => {
                       align="center"
                     >
                       <Button
+                      onClick={handleDalate}
                       className=" bg-red-200 hover:bg-red-400 hover:text-white h-9"
                       >Delete Account</Button>
                     </Flex>

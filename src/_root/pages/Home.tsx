@@ -22,9 +22,12 @@ import {
     FormMessage,
   } from "@/components/ui/form"
   import { SigninValidationSchema } from "@/lib/validation"
+import { checkCredentials, getCurrentUser, loginUser } from '@/_auth/forms/storeCredentials';
+import { useToast } from '@/components/ui/use-toast';
 
 
 const Home = () => {
+    const {toast} = useToast();
     const navigare = useNavigate()
     const form = useForm<z.infer<typeof SigninValidationSchema>>({
         resolver: zodResolver(SigninValidationSchema),
@@ -35,11 +38,31 @@ const Home = () => {
       })
 
     async function onSubmit(values: z.infer<typeof SigninValidationSchema>) {
-        console.log(values)
+        let isAuthenticated;
 
-        navigare('/ReviewerOverview');
-
+        isAuthenticated = loginUser(values.email, values.password)
+        if(isAuthenticated){
+            toast({
+                variant: "mydeafult",
+                title: "`Login Successfull`",
+                description: "Redirecting",
+              })
+              const currentUser = getCurrentUser();
+            if(currentUser?.userType === 'Researcher'){
+                navigare('/StudentOverview');
+            }else{
+                navigare('/ReviewerOverview');
+            }
+        }else{
+            toast({
+                variant: "mydeafult",
+                title: "`Login Failed`",
+                description: "Incorrect Username or Password",
+              })
+        }
     }
+
+    
 
 
 
@@ -65,8 +88,6 @@ const Home = () => {
                                             <div className=''>
                                                 <h2 className="font-poppins text-2xl text-center">Login to <span className='text-text-purple'>BUHREC</span> </h2>
                                             </div>
-                                            
-                                        
                                             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col mt-4">         
                                                 <div className='justify-center items-center ml-4'>
                                                     <FormField
@@ -82,7 +103,6 @@ const Home = () => {
                                                         </FormItem>
                                                     )}
                                                     />
-
                                                     <FormField
                                                     control={form.control}
                                                     name="password"
@@ -96,14 +116,10 @@ const Home = () => {
                                                         </FormItem>
                                                     )}
                                                     />
-                                                    
                                                 </div>
-                                                
-                                                
                                                 <Button type="submit" className="shad-button_primary mt-4 w-40 place-self-center">
                                                     <div>Sign In</div>
                                                 </Button>
-
                                                 <p className="text-small-regular text-dark-2 text-center mt-3">Don't have an account?
                                                 <Link to = "/sign-up" className="text-highlight-purple text-small-semibold ml-1">Sign-up</Link>
                                                 </p>
@@ -111,10 +127,9 @@ const Home = () => {
                                                 <p className="text-small-regular text-dark-2 text-center mt-3">
                                                 <Link to = "/adminSign-in" className="text-highlight-purple text-small-semibold ml-1">Admin</Link>
                                                 </p>
-                                                
                                             </form>
-                                            </div>
-                                        </Form>
+                                        </div>
+                                    </Form>
                             </DialogContent>
                         </Dialog>
                         <Link to="#pricing" className="hover:text-navbar-hover-purple body-medium">Pricing</Link>

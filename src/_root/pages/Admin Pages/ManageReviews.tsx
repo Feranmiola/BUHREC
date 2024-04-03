@@ -14,6 +14,7 @@ import {
   Spacer,
   Flex,
   Button as ChakraButton,
+  useToast,
 } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -115,6 +116,16 @@ const ManageReviews = () => {
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchValue(e.currentTarget.value);
     };
+
+    const toast = useToast();
+
+    const handleChanged =()=>{
+      toast({
+        variant: "mydeafult", 
+        title: "Successfully Changed Reviewer",
+      })
+    }
+  
   
     
     const totalRows = Math.ceil(filteredRows.length / PAGE_SIZE);
@@ -171,6 +182,7 @@ const ManageReviews = () => {
                       align="center"
                     >
                       <Button
+                      onClick={handleChanged}
                       className=" bg-green-200 hover:bg-green-400  h-9"
                       >Change Reviewer</Button>
                     </Flex>
@@ -207,6 +219,7 @@ const ManageReviews = () => {
                       align="center"
                     >
                       <Button
+                      onClick={handleChanged}
                       className=" bg-green-200 hover:bg-green-400  h-9"
                       >Change Reviewer</Button>
                     </Flex>

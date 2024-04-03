@@ -14,6 +14,7 @@ import {
   Spacer,
   Flex,
   Button as ChakraButton,
+  useToast,
 } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -112,6 +113,24 @@ const ReviewerPendingReviewes = () => {
   };
 
   
+  const toast = useToast();
+
+  const handleStart =()=>{
+    toast({
+      variant: "mydeafult", 
+      title: "Successfully Started Review",
+    })
+  }
+
+  const handleCompleted =()=>{
+    toast({
+      variant: "mydeafult", 
+      title: "Successfully Completed Review",
+    })
+  }
+
+
+  
   const totalRows = Math.ceil(filteredRows.length / PAGE_SIZE);
   const totalPages = Math.max(totalRows, 1);
 
@@ -169,10 +188,12 @@ const ReviewerPendingReviewes = () => {
                           align="center"
                         >
                           <Button
+                          onClick={handleStart}
                           className=" bg-blue-200 hover:bg-blue-300 h-9"
                           >Review</Button>
 
                           <Button
+                          onCanPlay={handleCompleted}
                             className=" ml-5 bg-green-300 h-9  hover:bg-green-400"
                           >Mark Complete</Button>
                         </Flex>
@@ -208,10 +229,12 @@ const ReviewerPendingReviewes = () => {
                           align="center"
                         >
                           <Button
+                          onClick={handleStart}
                           className=" bg-blue-200 hover:bg-blue-300 h-9"
                           >Review</Button>
 
                           <Button
+                          onCanPlay={handleCompleted}
                             className=" ml-5 bg-green-300 h-9  hover:bg-green-400"
                           >Mark Complete</Button>
                         </Flex>

@@ -17,15 +17,15 @@ import {
   ManageReviews,
   ManageSupportQuestions,
   ReviewerAccount,
-          ReviewerCompletedReviwews,
-          ReviewerOverview,
-          ReviewerPayments,
-          ReviewerPendingReviewes,
-          StudentAccount, 
-          StudentAddNewPaper,
-          StudentOverview,
-          StudentReviews, 
-         } from './_root/pages';
+  ReviewerCompletedReviwews,
+  ReviewerOverview,
+  ReviewerPayments,
+  ReviewerPendingReviewes,
+  StudentAccount, 
+  StudentAddNewPaper,
+  StudentOverview,
+  StudentReviews, 
+} from './_root/pages';
 
           
 import Authlayout from './_auth/authlayout';
@@ -35,6 +35,7 @@ import { Toaster } from "@/components/ui/toaster";
 import PageNotFound from './_auth/forms/PageNotFound';
 import Support from './_root/pages/Support';
 import ManageResearcherAccounts from './_root/pages/Admin Pages/ManageResearcherAccounts';
+import UnauthorisedPage from './_auth/forms/UnauthorisedPage';
 
 
 
@@ -46,7 +47,7 @@ function App() {
     navigate('/sign-in');
   }
   
-  return (
+  return (  
     <PrimeReactProvider>
       <NextUIProvider>
         <ChakraProvider>
@@ -62,6 +63,7 @@ function App() {
                 <Route path='/SignedOut' element = { <SignedOut/> }/>
                 <Route path='/support' element = { <Support/> }/>
                 <Route path='/PageNotFound' element = { <PageNotFound/> }/>
+                <Route path='/UnauthorisedPage' element = { <UnauthorisedPage/> }/>
                 <Route path="*" element={<PageNotFound />} />
               
               </Route>
@@ -99,8 +101,7 @@ function App() {
           </main>
           </ChakraProvider>
         </NextUIProvider>
-      </PrimeReactProvider>
-   
+      </PrimeReactProvider>   
   )
 }
 

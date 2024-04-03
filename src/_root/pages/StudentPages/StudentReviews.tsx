@@ -17,7 +17,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import PropTypes from "prop-types";
-const html2pdf = require('html2pdf.js');
+// const html2pdf = require('html2pdf.js');
+import html2pdf from 'html2pdf.js';
 import ReactDOM from 'react-dom';
 import { useToast } from "@/components/ui/use-toast"
 // import DeleteIcon from "@mui/icons-material/Delete";
@@ -135,7 +136,7 @@ const StudentReviews = () => {
     if(reviewed == "Reviewed"){
         const certificate = (
           <div id="certificate" className="border-4 border-black border-double p-6 bg-white">
-            <h1 className="text-3xl font-roboto text-bold text-center text-title-purple">BUHREC</h1>
+            <h1 className="text-3xl font-roboto font-bold text-center text-title-purple">BUHREC</h1>
             <div className=" p-6">
               <section className="flex flex-col pt-10">
                 <h1 className="text-center font-poppins text-4xl mt-5">Certificate of Review of</h1>
@@ -153,7 +154,6 @@ const StudentReviews = () => {
                   <p className="font-poppins font-bold">BUHREC</p>
                 </div>
               </div>
-    
             </div>
           </div>
         );
@@ -181,7 +181,6 @@ const StudentReviews = () => {
     }
     
   };
-
 
 
 

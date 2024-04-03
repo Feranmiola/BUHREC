@@ -6,7 +6,7 @@ const SignedOut = () => {
     <div className='items-center justify-center'>
         <h1 className='h1-bold'>You have been signed out successfully</h1>
         <p className='h3-semibold flex flex-center'>Return to 
-          <Link to="/sign-in" className=' text-blue-600 ml-1'>  Login Page </Link>
+          <Link to="/" className=' text-blue-600 ml-1'>  Home Page </Link>
           </p>
     </div>
   )
