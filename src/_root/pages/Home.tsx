@@ -141,7 +141,7 @@ const Home = () => {
             <div className='flex flex-row justify-center items-center'>
                 <div className='flex flex-1 justify-start items-start flex-col homeHeader py-44'>
                     <h2 className=' font-roboto text-7xl w-[425px]'>Welcome to <span className=' font-roboto text-title-purple'>BUHREC</span></h2>
-                    <p className=' w-80 font-poppins '>loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem</p>
+                    <p className=' w-96 font-poppins '>We handle various categories of researches and provide guidelines for ethical clearance. Join us in our journey towards excellence and global visibility in research.</p>
                     
                     <div className=' flex mt-3 pc-3 bg-white'>
                         <Dialog>
