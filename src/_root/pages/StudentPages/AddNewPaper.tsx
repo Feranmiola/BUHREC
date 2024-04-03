@@ -83,13 +83,16 @@ const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                 <DialogContent className='bg-white'>
                   <div className=''>
                     <h2 className='text-text-purple font-poppins'>File Upload Instructions</h2>
+                    <p>The fields here are in Maimum number of words count</p>
+                    <p>UG- Undergraduate</p>
+                    <p>PG- Post Graduate</p>
                     <TableContainer overflowY="auto" overflowX='auto' className=''>
                     <Table className="">
                       <Thead>
                         <Tr>
                         <Th className=""></Th>
-                        <Th className="">Undergraduate <br/>(Max Humber of Words) </Th>
-                        <Th className="">Postgraduate <br/>(Max Humber of Words) </Th>
+                        <Th className="">UG </Th>
+                        <Th className="">PG </Th>
                       </Tr>
                     </Thead>
                     <Tbody>
@@ -99,59 +102,44 @@ const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                           <Td className="">23</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Introduction</Td>
+                          <Td className="">-</Td>
+                          <Td className="">-</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Background</Td>
+                          <Td className="">800</Td>
+                          <Td className="">1000</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Scope and Limitation</Td>
+                          <Td className="">120</Td>
+                          <Td className="">150</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Justification</Td>
+                          <Td className="">100</Td>
+                          <Td className="">150</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Objectives</Td>
+                          <Td className="">300</Td>
+                          <Td className="">450</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Hypothesis (if any)</Td>
+                          <Td className="">100</Td>
+                          <Td className="">150</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Literature Review</Td>
+                          <Td className="">2000</Td>
+                          <Td className="">3600</Td>
                         </Tr>
                         <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
-                        </Tr>
-                        <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
-                        </Tr>
-                        <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
-                        </Tr>
-                        <Tr>
-                          <Td className=" text-text-purple font-roboto">Title</Td>
-                          <Td className="">23</Td>
-                          <Td className="">23</Td>
+                          <Td className=" text-text-purple font-roboto">Materials and Methods</Td>
+                          <Td className="">3600</Td>
+                          <Td className="">4400</Td>
                         </Tr>
                     </Tbody>
                     </Table>

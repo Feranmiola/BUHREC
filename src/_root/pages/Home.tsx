@@ -68,7 +68,7 @@ const Home = () => {
 
   return (
     <main className='w-full h-screen'>
-        <div className='bgImage h-[1025px]'>
+        <section className='bgImage h-[1025px]'>
             <div className='flex px-12 justify-between py-10'>
                 <div>
                     <h2 className='text-title-purple font-roboto text-2xl font-bold'><Link to='/'>BUHREC</Link></h2>
@@ -219,33 +219,49 @@ const Home = () => {
             <div className='justify-center items-center flex'>
                 <h3 className='font-eoboto font-semibold text-4xl text-text-purple '>Pricing Information</h3>
             </div>
-            <div className='flex flex-row mt-10 items-center justify-center '>
-                <div className='py-10'>
+            <div className='flex flex-row mt-10  '>
+                <div className='py-10  w-96'>
                     <Row gutter={32}>
                         <Col span={12}>
-                            <Card title="BSc" bordered={false}>
-                                Card content
+                            <Card title="BSc" bordered={true} className=' ml-[540px] items-center justify-center border-2 border-border-purple w-60'>
+                                <div>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                </div>
+                                <p className='text-title-purple font-roboto text-center text-xl'>#20,000</p>
                             </Card>
                         </Col>
                         <Col span={12}>
-                            <Card title="Msc" bordered={false}>
-                                Card content
+                            <Card title="PhD" bordered={true} className='  ml-[600px] border-2 border-border-purple w-60'>
+                                <div>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                    <p  className='text-text-purple font-poppins text-xl text-left px-4'>Paper Review</p>
+                                </div>
+                                <p className='text-title-purple font-roboto text-center text-xl'>#60,000</p>
                             </Card>
                         </Col>
                     </Row>
+
                 </div>
             </div>
         </div>
-        </div>
-        
-        <section id="about" className='mt-20'>
+        <div id="about" className='mt-20'>
             <div className='justify-center items-center flex'>
                 <h3 className='font-eoboto font-semibold text-4xl text-text-purple '>About</h3>
             </div>
-            <div className='mt-10 justify-center items-center'>
-                <p>Here is the about section</p>
-                                                
+            <div className='mt-10 justify-center items-center flex'>
+                <p className=' w-[900px] font-poppins text-xl text-center'>Babcock University Health Research Ethics Committee (BUHREC) is a platform dedicated to enhancing and upholding the quality of researches that originate from Babcock University. The main objective of BUHREC is to ensure that these researches meet the highest standards, thereby leading Babcock University to excellence and giving it visibility worldwide. This is achieved by adopting system thinking, which involves working cooperatively1. The platform handles various categories of researches including BSc, MSc, M.Phil, PhD, Pg. Diploma, and independent researches. It provides guidelines and standard operating procedures (SOPs) for ethical clearance, and requires all students to submit their research proposals and requests for ethical clearance, preferably during the first semester. Supervisors are also expected to ensure that students obtain ethical clearance certificates before being allowed to do their pre-field presentation1.</p>
             </div>
+        </div>
+        <div className='mt-20 h-10 bg-gray-600 items-center justify-center'>
+            <p className='font-poppins text-center text-white pt-3'>Made By Group 27</p>
+        </div>
         </section>
     </main>
   )
