@@ -22,7 +22,7 @@ import {
     FormMessage,
   } from "@/components/ui/form"
   import { SigninValidationSchema } from "@/lib/validation"
-import { checkCredentials, getCurrentUser, loginUser } from '@/_auth/forms/storeCredentials';
+import {getCurrentUser, loginUser } from '@/_auth/forms/storeCredentials';
 import { useToast } from '@/components/ui/use-toast';
 
 
